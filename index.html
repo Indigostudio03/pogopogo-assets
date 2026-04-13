@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Ébauche Stratégique · Relance Digitale POGO POGO</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0A0A0A;
+    --paper: #FFFFFF;
+    --mute: #6B6B6B;
+    --mute2: #9A9A9A;
+    --line: #E8E8E8;
+    --line-strong: #D0D0D0;
+    --accent: #8B6CC1;
+    --accent-light: #B49AE0;
+    --soft: #FAFAFA;
+    --dark: #1A1028;
+    --dark2: #2D1F45;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Jost', -apple-system, sans-serif;
+    color: var(--ink);
+    font-size: 10pt;
+    line-height: 1.55;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media screen {
+    body {
+      background: #D8D8D8;
+      padding: 16mm 0;
+    }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 20mm 18mm;
+      margin: 0 auto 14mm auto;
+      background: var(--paper);
+      box-shadow: 0 3mm 16mm rgba(0, 0, 0, 0.18);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  @media print {
+    @page {
+      size: A4;
+      margin: 20mm 18mm 20mm 18mm;
+    }
+    body { background: var(--paper); }
+    .page {
+      width: auto;
+      min-height: calc(297mm - 40mm);
+      padding: 0;
+      margin: 0;
+      box-shadow: none;
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+    }
+    .page:last-child { page-break-after: auto; }
+    .cover-dark { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.01em; margin: 0; }
+  h1 { font-size: 30pt; font-weight: 300; letter-spacing: 0.01em; line-height: 1.1; }
+  h2 { font-size: 19pt; font-weight: 400; margin-bottom: 10pt; letter-spacing: 0.005em; line-height: 1.2; }
+  h3 { font-size: 12pt; font-weight: 500; margin: 18pt 0 8pt 0; text-transform: uppercase; letter-spacing: 0.1em; }
+  h4 { font-size: 10.5pt; font-weight: 600; margin: 8pt 0 3pt 0; }
+
+  p { margin: 6pt 0; }
+  strong { font-weight: 600; }
+  em { font-style: italic; color: var(--mute); }
+
+  .muted { color: var(--mute); }
+  .tiny { font-size: 8pt; }
+  .small { font-size: 9pt; }
+  .center { text-align: center; }
+  .right { text-align: right; }
+  .accent { color: var(--accent); }
+  .dot { color: var(--accent); font-weight: 700; }
+
+  .eyebrow {
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 500;
+    color: var(--mute);
+  }
+
+  hr { border: none; border-top: 1px solid var(--line); margin: 14pt 0; }
+
+  .rule-accent {
+    width: 50pt;
+    height: 3pt;
+    background: var(--accent);
+    margin: 14pt 0;
+  }
+
+  .content { flex: 1; }
+
+  .ph-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10pt;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 20pt;
+  }
+  .ph-header .mini-logo {
+    font-size: 10pt;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+  }
+  .ph-header .mini-ref {
+    font-size: 8pt;
+    color: var(--mute);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .ph-footer {
+    margin-top: auto;
+    font-size: 7.5pt;
+    color: var(--mute);
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--line);
+    padding-top: 8pt;
+  }
+
+  /* ============ COVER ============ */
+  .cover-dark {
+    background: linear-gradient(160deg, var(--dark) 0%, var(--dark2) 60%, #3D2A5C 100%);
+    color: #FFFFFF;
+    justify-content: space-between;
+    padding: 30mm 24mm;
+  }
+  .cover-dark .logo {
+    font-size: 13pt;
+    font-weight: 300;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  .cover-dark .title {
+    font-size: 44pt;
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: #FFFFFF;
+  }
+  .cover-dark .title .big {
+    display: block;
+    font-weight: 500;
+    color: var(--accent-light);
+  }
+  .cover-dark .eyebrow {
+    color: var(--accent-light);
+    opacity: 0.9;
+  }
+  .cover-dark .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 14pt;
+  }
+  .cover-dark .meta .col { font-size: 9pt; line-height: 1.7; color: rgba(255,255,255,0.8); }
+  .cover-dark .meta .col strong {
+    display: block;
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent-light);
+    font-weight: 500;
+    margin-bottom: 3pt;
+  }
+
+  /* ============ LAYOUT ============ */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12pt; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10pt; }
+
+  .card {
+    border: 1px solid var(--line);
+    border-left: 2pt solid var(--accent);
+    padding: 11pt 13pt;
+    background: var(--soft);
+  }
+  .card h4 { margin-top: 0; }
+  .card p { font-size: 9pt; color: var(--mute); margin: 3pt 0; }
+
+  .phase {
+    display: grid;
+    grid-template-columns: 26pt 1fr 80pt;
+    gap: 12pt;
+    padding: 9pt 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  .phase:last-child { border-bottom: none; }
+  .phase .num { font-size: 20pt; font-weight: 300; line-height: 1; color: var(--accent); }
+  .phase .body h4 { margin: 0 0 3pt 0; font-size: 10.5pt; text-transform: uppercase; letter-spacing: 0.08em; }
+  .phase .body p { margin: 2pt 0; font-size: 9pt; color: var(--mute); }
+  .phase .when {
+    text-align: right;
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    color: var(--accent);
+    padding-top: 4pt;
+  }
+
+  ul.clean {
+    list-style: none;
+    padding-left: 0;
+    margin: 5pt 0;
+  }
+  ul.clean li {
+    padding: 3pt 0 3pt 16pt;
+    position: relative;
+    font-size: 9pt;
+    line-height: 1.5;
+  }
+  ul.clean li:before {
+    content: "\203A";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 12pt;
+    top: 1pt;
+  }
+
+  .quote {
+    border-left: 3pt solid var(--accent);
+    padding: 4pt 0 4pt 14pt;
+    font-size: 11pt;
+    font-style: italic;
+    color: var(--ink);
+    margin: 12pt 0;
+    line-height: 1.5;
+  }
+
+  .note-bar {
+    background: var(--soft);
+    border-left: 3pt solid var(--accent);
+    padding: 10pt 14pt;
+    font-size: 9pt;
+    color: var(--ink);
+    margin: 12pt 0;
+  }
+  .note-bar strong {
+    display: block;
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--mute);
+    margin-bottom: 3pt;
+    font-weight: 600;
+  }
+
+  /* ============ MACHINE DIAGRAM ============ */
+  .machine-box {
+    border: 2pt solid var(--dark);
+    border-radius: 4pt;
+    padding: 16pt 18pt;
+    margin: 14pt 0;
+    background: linear-gradient(135deg, #FAF8FF 0%, #F3EEFF 100%);
+  }
+  .machine-box h4 {
+    text-align: center;
+    color: var(--dark);
+    font-size: 11pt;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 12pt;
+  }
+  .machine-grid {
+    display: grid;
+    grid-template-columns: 1fr 30pt 1fr 30pt 1fr;
+    align-items: center;
+    gap: 6pt;
+  }
+  .machine-node {
+    background: var(--dark);
+    color: #fff;
+    padding: 8pt 10pt;
+    text-align: center;
+    font-size: 8pt;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 2pt;
+  }
+  .machine-arrow {
+    text-align: center;
+    font-size: 16pt;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .machine-result {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 10pt;
+    padding-top: 10pt;
+    border-top: 1px dashed var(--accent);
+    font-size: 9pt;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  /* ============ MEDIA SHOWCASE ============ */
+  .media-showcase {
+    margin: 12pt 0;
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .media-showcase img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .media-showcase video {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #000;
+  }
+  .media-caption {
+    padding: 8pt 12pt;
+    background: var(--soft);
+    border-top: 1px solid var(--line);
+  }
+  .media-caption .label {
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .media-caption p {
+    font-size: 8.5pt;
+    color: var(--mute);
+    margin: 3pt 0 0 0;
+  }
+
+  /* ============ EXCLUSION LIST ============ */
+  .excl-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 8pt 0;
+  }
+  .excl-list li {
+    padding: 4pt 0 4pt 20pt;
+    position: relative;
+    font-size: 9pt;
+    color: var(--mute);
+    border-bottom: 1px solid var(--line);
+  }
+  .excl-list li:last-child { border-bottom: none; }
+  .excl-list li:before {
+    content: "\2717";
+    position: absolute;
+    left: 0;
+    color: #C0392B;
+    font-weight: 700;
+    font-size: 10pt;
+    top: 3pt;
+  }
+
+  /* ============ CONDITION LIST ============ */
+  .cond-grid {
+    display: grid;
+    grid-template-columns: 26pt 1fr;
+    gap: 8pt 12pt;
+    margin: 10pt 0;
+  }
+  .cond-num {
+    font-size: 18pt;
+    font-weight: 300;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .cond-text h4 {
+    margin: 0 0 2pt 0;
+    font-size: 9.5pt;
+  }
+  .cond-text p {
+    font-size: 8.5pt;
+    color: var(--mute);
+    margin: 0;
+  }
+
+  /* ============ PILLAR BLOCK ============ */
+  .pillar {
+    border: 1px solid var(--line);
+    margin: 10pt 0;
+    padding: 0;
+  }
+  .pillar-header {
+    background: var(--dark);
+    color: #fff;
+    padding: 8pt 14pt;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .pillar-header h4 {
+    margin: 0;
+    color: #fff;
+    font-size: 10pt;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .pillar-header .tag {
+    font-size: 7pt;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent-light);
+    font-weight: 600;
+    background: rgba(139,108,193,0.2);
+    padding: 3pt 8pt;
+    border-radius: 2pt;
+  }
+  .pillar-body {
+    padding: 12pt 14pt;
+  }
+  .pillar-body p { font-size: 9pt; }
+  .pillar-why {
+    background: var(--soft);
+    padding: 8pt 14pt;
+    border-top: 1px solid var(--line);
+    font-size: 8.5pt;
+    color: var(--mute);
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== PAGE 1 · COVER ==================== -->
+<section class="page cover-dark">
+  <div class="content" style="display:flex; flex-direction:column; justify-content:space-between; flex:1;">
+
+    <div>
+      <div class="logo">Indigo Studio</div>
+    </div>
+
+    <div>
+      <div class="eyebrow">Ébauche stratégique &nbsp;&middot;&nbsp; Avril 2026</div>
+      <div style="width:50pt; height:3pt; background:var(--accent-light); margin:14pt 0;"></div>
+      <h1 class="title" style="color:#fff;">
+        Relance digitale<br>
+        <span class="big">POGO POGO<span style="color:var(--accent-light);">.</span></span>
+      </h1>
+      <p style="font-size: 12pt; margin-top: 14pt; max-width: 130mm; color: rgba(255,255,255,0.75);">
+        Ébauche stratégique pour la relance digitale de la marque
+        de parfums et cosmétiques <strong style="color:#fff;">Pogo Pogo</strong>,
+        sur les marchés Benelux et France.
+      </p>
+    </div>
+
+    <div class="meta">
+      <div class="col">
+        <strong>Client</strong>
+        Jo Kemby<br>
+        Marque Pogo Pogo
+      </div>
+      <div class="col">
+        <strong>Agence</strong>
+        Indigo Studio
+      </div>
+      <div class="col right">
+        <strong>Date</strong>
+        Avril 2026
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== PAGE 2 · CADRAGE ==================== -->
+<section class="page">
+  <div class="ph-header">
+    <div class="mini-logo">INDIGO STUDIO</div>
+    <div class="mini-ref">Ébauche &middot; Relance Pogo Pogo &middot; 2026</div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">Avant-propos</div>
+    <h2>Ce document est une ébauche<span class="dot">.</span></h2>
+
+    <div class="quote" style="margin: 14pt 0;">
+      On ne lance pas une marque en naviguant à l'aveugle.
+    </div>
+
+    <p>
+      Ce document présente les <strong>grandes orientations</strong> et les
+      <strong>leviers d'intervention</strong> que nous identifions pour la relance
+      digitale de Pogo Pogo. Il pose un cadre, une direction, une logique d'ensemble.
+    </p>
+
+    <p>
+      <strong>Ce n'est pas une stratégie définitive.</strong> Une stratégie solide
+      nécessite un travail d'analyse approfondi en amont &mdash; un travail que nous
+      n'avons volontairement pas réalisé à ce stade, car il fait partie intégrante
+      de la mission elle-même.
+    </p>
+
+    <h3>Ce qui manque encore</h3>
+
+    <p>Avant de déployer quoi que ce soit, il sera indispensable de mener :</p>
+
+    <div class="grid-2" style="margin-top: 8pt;">
+      <div class="card">
+        <h4>Benchmark concurrentiel</h4>
+        <p>Identifier et analyser les marques indépendantes qui vendent en ligne sur nos marchés cibles. Décrypter leurs prix, leur positionnement, leur contenu, leurs publicités actives. Comprendre ce qui fonctionne et ce qui ne fonctionne pas.</p>
+      </div>
+      <div class="card">
+        <h4>Analyse de marché</h4>
+        <p>Étudier les tendances de recherche, les comportements d'achat en ligne dans le parfum, la saisonnalité des ventes, les plateformes privilégiées par les acheteurs Benelux et France.</p>
+      </div>
+      <div class="card">
+        <h4>Identification des cibles</h4>
+        <p>Définir précisément à qui on s'adresse. Construire des profils d'acheteurs détaillés (personas) basés sur des données réelles, pas sur des suppositions. Qui achète du parfum en ligne ? Pourquoi ? Où ?</p>
+      </div>
+      <div class="card">
+        <h4>Stratégie de positionnement</h4>
+        <p>Définir la proposition de valeur unique de Pogo Pogo. Pourquoi cette marque et pas une autre ? Quel message, quel ton, quel angle pour chaque segment et chaque plateforme ?</p>
+      </div>
+    </div>
+
+    <div class="note-bar" style="margin-top: 14pt;">
+      <strong>L'IA comme outil d'analyse</strong>
+      Aujourd'hui, grâce à l'intelligence artificielle, nous avons la capacité d'aller
+      chercher en profondeur : analyser des milliers de publicités concurrentes, décrypter
+      les tendances de recherche, scanner les avis consommateurs, cartographier le paysage
+      concurrentiel. Ce travail d'analyse, qui aurait pris des semaines il y a quelques
+      années, peut désormais être mené de manière exhaustive et rapide. C'est un avantage
+      considérable pour prendre des décisions éclairées plutôt que de naviguer à l'intuition.
+    </div>
+
+    <p style="margin-top: 14pt;">
+      Ce travail de fond constitue la <strong>première étape concrète</strong> de la mission
+      (voir Phase 1, Mois 1). Les pages qui suivent présentent la direction générale que nous
+      recommandons &mdash; elle sera affinée, ajustée et validée par les données issues de
+      cette analyse.
+    </p>
+  </div>
+
+  <div class="ph-footer">
+    <span>Indigo Studio</span>
+    <span>Page 2</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 3 · CONSTAT ==================== -->
+<section class="page">
+  <div class="ph-header">
+    <div class="mini-logo">INDIGO STUDIO</div>
+    <div class="mini-ref">Ébauche &middot; Relance Pogo Pogo &middot; 2026</div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">01 &middot; Constat</div>
+    <h2>Où en est Pogo Pogo aujourd'hui<span class="dot">.</span></h2>
+
+    <p>
+      La marque <strong>Pogo Pogo</strong> existe depuis 2008 et dispose d'atouts réels :
+      trois parfums signatures (Classic, Girls, Limited Edition) développés avec
+      <strong>Mane</strong>, maison de composition de renommée internationale, ainsi
+      qu'une gamme capillaire complète (gel, wax, laque). Ce sont de vrais produits,
+      testés et commercialisés.
+    </p>
+
+    <p>Un stock important est disponible et prêt à être vendu.</p>
+
+    <p>Cependant, la situation actuelle est la suivante :</p>
+
+    <div class="grid-2" style="margin-top: 10pt;">
+      <div class="card">
+        <h4>Site web</h4>
+        <p>Le site existant est actuellement hors ligne. Pas de point de vente digital actif à ce jour.</p>
+      </div>
+      <div class="card">
+        <h4>Réseaux sociaux</h4>
+        <p>Aucune présence active. Pas d'Instagram, pas de TikTok, pas de communauté.</p>
+      </div>
+      <div class="card">
+        <h4>Notoriété</h4>
+        <p>Aucune visibilité auprès du grand public. La marque est invisible en ligne.</p>
+      </div>
+      <div class="card">
+        <h4>Ventes</h4>
+        <p>Uniquement du bouche-à-oreille ponctuel. Pas de canal de vente structuré.</p>
+      </div>
+    </div>
+
+    <div class="quote" style="margin-top: 18pt;">
+      Le produit existe. La marque, aux yeux du marché, n'existe pas encore.
+    </div>
+  </div>
+
+  <div class="ph-footer">
+    <span>Indigo Studio</span>
+    <span>Page 2</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 3 · LE VRAI PROBLÈME ==================== -->
+<section class="page">
+  <div class="ph-header">
+    <div class="mini-logo">INDIGO STUDIO</div>
+    <div class="mini-ref">Ébauche &middot; Relance Pogo Pogo &middot; 2026</div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">02 &middot; Le vrai problème</div>
+    <h2>Ce n'est pas une question de prix<span class="dot">.</span></h2>
+
+    <p>
+      La question revient souvent : <em>faut-il augmenter ou baisser le prix ?</em>
+    </p>
+
+    <p>
+      <strong>La réponse : ni l'un ni l'autre.</strong> Pogo Pogo est positionné dans le
+      segment « accessible premium » &mdash; au-dessus du mass market, en dessous du luxe.
+      C'est un positionnement prix cohérent pour un parfum de qualité.
+    </p>
+
+    <div class="note-bar">
+      <strong>Le vrai levier</strong>
+      Baisser le prix ne résoudra rien : on vendrait moins cher à une audience qui n'existe
+      pas. Le problème n'est pas le prix &mdash; c'est que <strong>personne ne sait que
+      Pogo Pogo existe</strong>. Le levier, c'est la visibilité, la notoriété, la présence.
+    </div>
+
+    <h3>Le marché est porteur</h3>
+
+    <div class="grid-3" style="margin-top: 8pt;">
+      <div class="card">
+        <h4 style="color: var(--accent); font-size: 22pt; font-weight: 300;">+8,9%</h4>
+        <p>Croissance du marché du parfum en Europe en 2024. Le segment beauté qui progresse le plus vite.</p>
+      </div>
+      <div class="card">
+        <h4 style="color: var(--accent); font-size: 22pt; font-weight: 300;">66%</h4>
+        <p>Des jeunes consommateurs découvrent de nouveaux parfums via TikTok et Instagram.</p>
+      </div>
+      <div class="card">
+        <h4 style="color: var(--accent); font-size: 22pt; font-weight: 300;">23%</h4>
+        <p>De la croissance beauté d'ici 2029 sera portée par le parfum seul.</p>
+      </div>
+    </div>
+
+    <p style="margin-top: 14pt;">
+      Les marques indépendantes qui percent aujourd'hui sont celles qui
+      <strong>racontent une histoire</strong> et <strong>construisent une communauté</strong>
+      &mdash; pas celles qui ont le prix le plus bas. Pogo Pogo a tous les ingrédients :
+      un vrai produit, un vrai savoir-faire (Mane), un nom mémorable, une histoire de
+      fondateur.
+    </p>
+
+    <div class="quote">
+      Ce qui manque, c'est la machine pour le faire savoir.
+    </div>
+  </div>
+
+  <div class="ph-footer">
+    <span>Indigo Studio</span>
+    <span>Page 3</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 4 · STRATÉGIE ==================== -->
+<section class="page">
+  <div class="ph-header">
+    <div class="mini-logo">INDIGO STUDIO</div>
+    <div class="mini-ref">Ébauche &middot; Relance Pogo Pogo &middot; 2026</div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">03 &middot; La stratégie</div>
+    <h2>Recentrer. Digitaliser. Activer<span class="dot">.</span></h2>
+
+    <h3>Recentrer sur Pogo Pogo</h3>
+    <p>
+      L'ancienne approche mettait en avant <strong>Jokemby</strong> comme marque ombrelle.
+      Ce n'est plus pertinent. Le marché du parfum fonctionne par <strong>nom de marque
+      produit</strong>. C'est « Pogo Pogo » que les gens doivent retenir, chercher et acheter.
+    </p>
+    <p class="small muted">
+      Jokemby reste en arrière-plan comme maison fondatrice. Pogo Pogo devient l'identité
+      visible, le nom commercial, la marque digitale.
+    </p>
+
+    <h3>Digital-first</h3>
+    <p>
+      Pas de retail, pas de distribution physique dans un premier temps. Toute la stratégie
+      passe par le digital : un <strong>site e-commerce</strong> comme point de vente central,
+      les <strong>réseaux sociaux</strong> comme vitrine et moteur de découverte, et la
+      <strong>publicité en ligne</strong> comme accélérateur.
+    </p>
+
+    <h3>La cible</h3>
+    <div class="grid-2" style="margin-top: 8pt;">
+      <div class="card">
+        <h4>Géographie</h4>
+        <p>Belgique, Pays-Bas, Luxembourg, France.</p>
+      </div>
+      <div class="card">
+        <h4>Profil</h4>
+        <p>Acheteurs en ligne, sensibles à la découverte de marques indépendantes, avec pouvoir d'achat.</p>
+      </div>
+    </div>
+
+    <h3>La machine Pogo Pogo</h3>
+    <p class="small muted">
+      Chaque pilier est indispensable. Ils fonctionnent ensemble : retirer un élément
+      et les autres perdent leur efficacité.
+    </p>
+
+    <div class="machine-box">
+      <h4>La machine digitale</h4>
+      <div class="machine-grid">
+        <div class="machine-node">Stratégie<br>&amp; Positionnement</div>
+        <div class="machine-arrow">&rarr;</div>
+        <div class="machine-node">Contenu<br>&amp; Réseaux</div>
+        <div class="machine-arrow">&rarr;</div>
+        <div class="machine-node">Site e-commerce<br>&amp; Publicité</div>
+      </div>
+      <div class="machine-result">Visibilité &rarr; Trafic &rarr; Ventes</div>
+    </div>
+
+    <div class="note-bar">
+      <strong>Pourquoi tout est lié</strong>
+      Un site sans trafic est inutile. De la publicité sans site gaspille le budget.
+      Des réseaux sociaux sans contenu régulier sont invisibles. Chaque pièce de la
+      machine dépend des autres.
+    </div>
+  </div>
+
+  <div class="ph-footer">
+    <span>Indigo Studio</span>
+    <span>Page 4</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 5 · PILIERS (1/2) ==================== -->
+<section class="page">
+  <div class="ph-header">
+    <div class="mini-logo">INDIGO STUDIO</div>
+    <div class="mini-ref">Ébauche &middot; Relance Pogo Pogo &middot; 2026</div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">04 &middot; Les piliers d'intervention (1/2)</div>
+    <h2>Ce qu'il faut construire<span class="dot">.</span></h2>
+
+    <div class="pillar">
+      <div class="pillar-header">
+        <h4>01 &middot; Site e-commerce Pogo Pogo</h4>
+        <div class="tag">Indispensable</div>
+      </div>
+      <div class="pillar-body">
+        <p><strong>Quoi :</strong> Repartir sur un site web neuf, centré sur la marque Pogo Pogo, avec une boutique en ligne intégrée couvrant le Benelux et la France.</p>
+
+        <p style="margin-top: 8pt;"><strong>Pourquoi repartir de zéro ?</strong></p>
+        <p class="small">Un site existant avait été développé il y a quelques années, sous la marque Jokemby. Trois raisons rendent nécessaire de repartir sur une base neuve :</p>
+        <ul class="clean">
+          <li><strong>Recentrage sur Pogo Pogo</strong> &mdash; L'ancien site était construit autour de Jokemby. La nouvelle stratégie place Pogo Pogo au centre. L'architecture, le design et les parcours d'achat doivent refléter cette identité.</li>
+          <li><strong>Évolution des standards</strong> &mdash; Les pratiques e-commerce, le design mobile-first, les exigences de performance et de conversion ont considérablement évolué. Un site conçu il y a plusieurs années ne répond plus aux attentes des acheteurs en ligne d'aujourd'hui.</li>
+          <li><strong>Indisponibilité technique</strong> &mdash; Le site précédent est actuellement hors ligne. L'hébergement et/ou le nom de domaine n'ont pas été renouvelés, ce qui rend la récupération technique incertaine.</li>
+        </ul>
+
+        <p style="margin-top: 8pt;"><strong>Ce que ça inclut :</strong></p>
+        <ul class="clean">
+          <li>Design et développement sur plateforme e-commerce moderne</li>
+          <li>Pages produits optimisées (photos, descriptions, storytelling)</li>
+          <li>Intégration paiement et livraison multi-pays (Benelux + France)</li>
+          <li>Optimisation mobile (80%+ du trafic social est mobile)</li>
+          <li>Configuration du tracking (analytics, pixels publicitaires)</li>
+        </ul>
+
+        <p class="small muted" style="margin-top: 6pt;">Le contenu existant (textes, descriptions produits, visuels) sera bien entendu réutilisé et mis à jour. On ne repart pas de zéro sur le fond &mdash; uniquement sur la forme et la technique.</p>
+      </div>
+      <div class="pillar-why">
+        Sans point de vente en ligne, il n'y a nulle part où envoyer les visiteurs.
+        Chaque euro dépensé en visibilité sans site = euro perdu.
+      </div>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-header">
+        <h4>02 &middot; Identité sociale et contenu</h4>
+        <div class="tag">Indispensable</div>
+      </div>
+      <div class="pillar-body">
+        <p><strong>Quoi :</strong> Création de l'univers visuel Pogo Pogo sur Instagram et TikTok. Ligne éditoriale, templates, calendrier de contenu sur 3 mois.</p>
+        <ul class="clean">
+          <li>Création des profils Instagram et TikTok Pogo Pogo</li>
+          <li>Charte graphique sociale (templates stories, posts, reels)</li>
+          <li>Ligne éditoriale et ton de voix de la marque</li>
+          <li>Calendrier de contenu &mdash; 3 mois (12 semaines)</li>
+          <li>Production de contenu assistée par IA (visuels, textes, variations)</li>
+          <li>Minimum recommandé : 3 publications/semaine par plateforme</li>
+        </ul>
+      </div>
+      <div class="pillar-why">
+        Les réseaux sociaux sont la vitrine de la marque. C'est là que les gens
+        découvrent, jugent et décident d'acheter. Sans présence sociale, la marque
+        n'existe pas pour le consommateur digital.
+      </div>
+    </div>
+  </div>
+
+  <div class="ph-footer">
+    <span>Indigo Studio</span>
+    <span>Page 5</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 6 · PILIERS (2/2) ==================== -->
+<section class="page">
+  <div class="ph-header">
+    <div class="mini-logo">INDIGO STUDIO</div>
+    <div class="mini-ref">Ébauche &middot; Relance Pogo Pogo &middot; 2026</div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">04 &middot; Les piliers d'intervention (2/2)</div>
+    <h2>Accélérer et convertir<span class="dot">.</span></h2>
+
+    <div class="pillar">
+      <div class="pillar-header">
+        <h4>03 &middot; Publicité en ligne (acquisition)</h4>
+        <div class="tag">Accélérateur</div>
+      </div>
+      <div class="pillar-body">
+        <p><strong>Quoi :</strong> Campagnes publicitaires Meta (Instagram/Facebook) et TikTok Ads pour générer du trafic qualifié vers le site.</p>
+        <ul class="clean">
+          <li>Stratégie publicitaire (audiences, messages, formats)</li>
+          <li>Création des campagnes (visuels, textes, A/B testing)</li>
+          <li>Gestion et optimisation continue</li>
+          <li>Reporting mensuel des performances</li>
+        </ul>
+        <p class="small muted" style="margin-top: 8pt;">
+          <strong>Note :</strong> Le budget média (dépense publicitaire versée aux plateformes)
+          est distinct des frais d'agence. C'est le « carburant » de la machine publicitaire.
+          Sans budget média, pas de diffusion.
+        </p>
+      </div>
+      <div class="pillar-why">
+        Le contenu organique construit la crédibilité, mais la publicité génère le volume.
+        Sans pub, la croissance est lente (6 à 12 mois). Avec pub, on accélère la
+        découverte et les premières ventes.
+      </div>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-header">
+        <h4>04 &middot; Stratégie et positionnement</h4>
+        <div class="tag">Fondation</div>
+      </div>
+      <div class="pillar-body">
+        <p><strong>Quoi :</strong> Le travail de réflexion qui précède toute exécution. Tout le reste en découle.</p>
+        <ul class="clean">
+          <li>Positionnement de marque Pogo Pogo (qui, pour qui, pourquoi)</li>
+          <li>Messages clés par produit et par audience</li>
+          <li>Recommandation storytelling (histoire du fondateur, identité)</li>
+          <li>Brief créatif pour tous les autres piliers</li>
+        </ul>
+      </div>
+      <div class="pillar-why">
+        Si le positionnement est flou, le contenu sera incohérent, les pubs inefficaces,
+        et le site ne convertira pas. La stratégie n'est pas du « blabla » &mdash; c'est
+        le plan qui rend tout le reste efficace.
+      </div>
+    </div>
+  </div>
+
+  <div class="ph-footer">
+    <span>Indigo Studio</span>
+    <span>Page 6</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 7 · EXEMPLES IA (1/2) ==================== -->
+<section class="page">
+  <div class="ph-header">
+    <div class="mini-logo">INDIGO STUDIO</div>
+    <div class="mini-ref">Ébauche &middot; Relance Pogo Pogo &middot; 2026</div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">05 &middot; L'IA comme levier de production</div>
+    <h2>Produire plus, plus vite, à moindre coût<span class="dot">.</span></h2>
+
+    <p>
+      L'intelligence artificielle est un <strong>accélérateur</strong>, pas un remplacement.
+      Elle nous permet de produire du contenu visuel et vidéo de qualité à une fraction
+      du coût et du temps traditionnels &mdash; mais elle part toujours d'une base réelle.
+    </p>
+
+    <div class="note-bar">
+      <strong>Un atout majeur : le contenu existant</strong>
+      Pogo Pogo dispose déjà d'un historique de contenu : shootings photo réalisés,
+      visuels produits, textes, identité graphique travaillée. Ce contenu existant est
+      une <strong>matière première précieuse</strong>. L'IA s'appuie dessus pour produire
+      des déclinaisons, des animations, des variations &mdash; elle ne remplace pas le
+      travail créatif, elle le démultiplie.
+    </div>
+
+    <div class="note-bar">
+      <strong>Important &middot; Exemples bruts</strong>
+      Les visuels et vidéos ci-dessous sont des <strong>exemples bruts</strong>, générés par IA
+      sans travail de post-production : pas de montage, pas de retouche réaliste poussée,
+      pas de musique, pas de sound design. L'objectif est de montrer le <strong>type de contenu
+      réalisable</strong> et le potentiel de cette approche. En production réelle, chaque élément
+      sera retravaillé, monté et optimisé pour les plateformes cibles. Les possibilités ne se
+      limitent pas à ces exemples.
+    </div>
+
+    <h3>Exemple 1 &middot; De l'image à la vidéo</h3>
+    <p class="small muted">Une image IA sert de point de départ. L'IA l'anime ensuite en vidéo.</p>
+
+    <div class="grid-2">
+      <div class="media-showcase">
+        <img src="https://raw.githubusercontent.com/Indigostudio03/pogopogo-assets/main/media-exemple-ia-parfum.png" alt="Visuel IA - parfum classique">
+        <div class="media-caption">
+          <div class="label">Image source (IA)</div>
+          <p>Visuel de campagne généré par IA. Sert de base pour la vidéo.</p>
+        </div>
+      </div>
+      <div class="media-showcase">
+        <video controls preload="metadata" poster="https://raw.githubusercontent.com/Indigostudio03/pogopogo-assets/main/media-exemple-ia-parfum.png">
+          <source src="https://raw.githubusercontent.com/Indigostudio03/pogopogo-assets/main/media-video-produit-ia.mp4" type="video/mp4">
+          Votre navigateur ne supporte pas la lecture vidéo.
+        </video>
+        <div class="media-caption">
+          <div class="label">Vidéo générée (IA)</div>
+          <p>L'image est animée par IA. Format idéal pour Reels et publicités.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>Exemple 2 &middot; Univers féminin « Girls »</h3>
+    <p class="small muted">Même principe : une image IA donne naissance à une vidéo de marque.</p>
+
+    <div class="grid-2">
+      <div class="media-showcase">
+        <img src="https://raw.githubusercontent.com/Indigostudio03/pogopogo-assets/main/media-exemple-ia-girls.jpeg" alt="Visuel IA - parfum Girls">
+        <div class="media-caption">
+          <div class="label">Image source (IA)</div>
+          <p>Univers Pogo Pogo Girls. Visuel produit avec ambiance féminine.</p>
+        </div>
+      </div>
+      <div class="media-showcase">
+        <video controls preload="metadata" poster="https://raw.githubusercontent.com/Indigostudio03/pogopogo-assets/main/media-exemple-ia-girls.jpeg">
+          <source src="https://raw.githubusercontent.com/Indigostudio03/pogopogo-assets/main/media-video-girls-ia.mp4" type="video/mp4">
+          Votre navigateur ne supporte pas la lecture vidéo.
+        </video>
+        <div class="media-caption">
+          <div class="label">Vidéo générée (IA)</div>
+          <p>Animation de l'image pour les réseaux sociaux et la publicité.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ph-footer">
+    <span>Indigo Studio</span>
+    <span>Page 7</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 8 · EXEMPLE UGC ==================== -->
+<section class="page">
+  <div class="ph-header">
+    <div class="mini-logo">INDIGO STUDIO</div>
+    <div class="mini-ref">Ébauche &middot; Relance Pogo Pogo &middot; 2026</div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">05 &middot; L'IA comme levier de production (suite)</div>
+    <h2>Le format UGC, entièrement par IA<span class="dot">.</span></h2>
+
+    <p>
+      Le <strong>UGC (User Generated Content)</strong> est le format publicitaire le plus
+      performant en 2025-2026 dans le secteur beauté et parfum. Il simule un avis
+      authentique, une recommandation personnelle &mdash; exactement ce qui déclenche l'achat.
+    </p>
+
+    <p>
+      Grâce à l'IA, il est désormais possible de produire ce type de contenu sans faire
+      appel à des influenceurs ou des acteurs. Voici un exemple :
+    </p>
+
+    <div class="media-showcase" style="max-width: 320pt; margin: 12pt auto;">
+      <video controls preload="metadata" style="width:100%; display: block;">
+        <source src="https://andreatuysuzian.com/arcards/videos/header/mobile/1.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la lecture vidéo.
+      </video>
+      <div class="media-caption">
+        <div class="label">Exemple &middot; Format UGC généré par IA</div>
+        <p>Ce type de vidéo &mdash; une cliente satisfaite qui présente un produit comme une influenceuse &mdash; peut être entièrement généré par IA. Imaginez ce même format avec un produit Pogo Pogo, en français, diffusé en publicité sur Instagram et TikTok.</p>
+      </div>
+    </div>
+
+    <div class="note-bar" style="margin-top: 16pt;">
+      <strong>Pourquoi c'est un avantage compétitif</strong>
+      La production de contenu est traditionnellement le poste le plus coûteux et le plus lent
+      d'une stratégie digitale. Avec l'IA, nous pouvons produire des dizaines de variantes
+      de visuels et vidéos en quelques jours &mdash; ce qui aurait nécessité des semaines
+      de production et un budget bien plus élevé. Cela signifie plus de contenu, plus de
+      tests, plus d'optimisation, pour un investissement maîtrisé.
+    </div>
+
+    <div class="note-bar">
+      <strong>Ce ne sont que des exemples</strong>
+      Ces contenus sont des ébauches brutes pour illustrer le potentiel. En production,
+      chaque visuel et vidéo sera retravaillé avec montage professionnel, musique, effets,
+      et adapté à l'identité Pogo Pogo. Les formats possibles vont bien au-delà de ces
+      quelques exemples : stories animées, carrousels produits, unboxing virtuels, tutoriels
+      coiffure pour les produits capillaires, etc.
+    </div>
+
+    <div class="note-bar">
+      <strong>L'IA ne remplace pas les vrais influenceurs</strong>
+      Le contenu généré par IA permet de démarrer rapidement et de tester des formats à
+      moindre coût. Mais il ne remplacera jamais l'audience et la crédibilité de vrais
+      créateurs de contenu. Une stratégie de <strong>marketing d'influence</strong> avec
+      de véritables influenceurs beauté/parfum est prévue dans une phase ultérieure, une
+      fois la présence digitale de base installée (voir Phase 3).
+    </div>
+
+    <div class="quote" style="margin-top: 16pt;">
+      Plus de contenu = plus de tests. Plus de tests = plus de données.
+      Plus de données = de meilleures décisions. C'est un cercle vertueux.
+    </div>
+  </div>
+
+  <div class="ph-footer">
+    <span>Indigo Studio</span>
+    <span>Page 8</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 9 · PHASAGE ==================== -->
+<section class="page">
+  <div class="ph-header">
+    <div class="mini-logo">INDIGO STUDIO</div>
+    <div class="mini-ref">Ébauche &middot; Relance Pogo Pogo &middot; 2026</div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">06 &middot; Le phasage</div>
+    <h2>Deux phases, un objectif clair<span class="dot">.</span></h2>
+
+    <h3>Phase 1 &mdash; Lancement (mission ponctuelle, 3 mois minimum)</h3>
+
+    <p class="small muted">Objectif : mettre la machine en place et la démarrer. Ces trois mois sont le strict minimum pour poser les fondations d'une présence digitale crédible.</p>
+
+    <div style="margin-top: 10pt;">
+      <div class="phase">
+        <div class="num">01</div>
+        <div class="body">
+          <h4>Stratégie et fondations</h4>
+          <p>Audit et benchmark concurrentiel. Analyse du marché Benelux/France. Identification des cibles et des leviers. Positionnement de marque Pogo Pogo. Brief créatif. Lancement du développement du site e-commerce.</p>
+        </div>
+        <div class="when">Mois 1</div>
+      </div>
+
+      <div class="phase">
+        <div class="num">02</div>
+        <div class="body">
+          <h4>Construction et contenu</h4>
+          <p>Finalisation du site e-commerce. Création des profils sociaux. Production des premiers contenus (à partir du contenu existant + IA). Préparation des campagnes publicitaires.</p>
+        </div>
+        <div class="when">Mois 2</div>
+      </div>
+
+      <div class="phase">
+        <div class="num">03</div>
+        <div class="body">
+          <h4>Activation et optimisation</h4>
+          <p>Site en ligne avec e-commerce actif. Lancement des premières campagnes publicitaires. Contenu social régulier. Analyse des données de trafic et de conversion. Optimisation continue des campagnes sur base des résultats réels.</p>
+        </div>
+        <div class="when">Mois 3</div>
+      </div>
+    </div>
+
+    <div class="note-bar" style="margin-top: 14pt; border-left-color: #C0392B;">
+      <strong>Engagement minimum</strong>
+      Ces trois mois constituent le <strong>minimum nécessaire</strong> pour donner une chance
+      réelle à la relance. En dessous de ce périmètre, les résultats seraient trop fragmentaires
+      pour être exploitables et nous ne serions pas en mesure de nous engager sur la mission.
+    </div>
+
+    <hr>
+
+    <h3>Phase 2 &mdash; Accélération (retainer mensuel, à partir du mois 4)</h3>
+
+    <p class="small muted">Conditionnée aux résultats de la Phase 1 et à la volonté de poursuivre des deux parties.</p>
+
+    <ul class="clean">
+      <li>Gestion continue des réseaux sociaux</li>
+      <li>Nouvelles campagnes publicitaires (saisonnières, promotionnelles)</li>
+      <li>Optimisation du site selon les données de vente</li>
+      <li>Campagnes événementielles (Noël, fête des mères/pères, Saint-Valentin)</li>
+      <li>Stratégies complémentaires : bundles, coffrets, éditions limitées</li>
+    </ul>
+
+    <h3>Phase 3 &mdash; Marketing d'influence (à définir)</h3>
+
+    <p class="small muted">
+      À terme, une stratégie de <strong>marketing d'influence</strong> sera un levier
+      essentiel pour Pogo Pogo. L'IA permet d'accélérer la production de contenu et de
+      lancer la machine, mais elle ne remplacera jamais l'audience et la crédibilité de
+      vrais influenceurs. Collaborer avec des créateurs de contenu dans le domaine beauté
+      et parfum &mdash; en Belgique, aux Pays-Bas et en France &mdash; permettra de toucher
+      des communautés établies et de bénéficier d'une recommandation authentique.
+    </p>
+    <p class="small muted">
+      Cette phase sera envisagée une fois la présence digitale de base installée et les
+      premiers résultats de la Phase 1 analysés.
+    </p>
+
+    <div class="note-bar" style="margin-top: 14pt;">
+      <strong>Le budget sera détaillé sur mesure</strong>
+      Chaque pilier fera l'objet d'un chiffrage précis adapté aux besoins et aux ambitions
+      définis ensemble lors de notre prochaine réunion. Un devis détaillé sera remis après
+      validation du périmètre d'intervention.
+    </div>
+  </div>
+
+  <div class="ph-footer">
+    <span>Indigo Studio</span>
+    <span>Page 9</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 10 · ATTENTES ==================== -->
+<section class="page">
+  <div class="ph-header">
+    <div class="mini-logo">INDIGO STUDIO</div>
+    <div class="mini-ref">Ébauche &middot; Relance Pogo Pogo &middot; 2026</div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">07 &middot; Ce à quoi s'attendre</div>
+    <h2>Transparence totale<span class="dot">.</span></h2>
+
+    <h3>Ce qu'on peut raisonnablement attendre</h3>
+    <ul class="clean">
+      <li>Un site professionnel et fonctionnel en ligne sous 8 semaines</li>
+      <li>Une présence sociale active et cohérente dès le mois 2</li>
+      <li>Du trafic qualifié vers le site dès l'activation des campagnes</li>
+      <li>Des premières ventes en ligne dès le mois 3</li>
+      <li>Des données concrètes pour mesurer, ajuster et optimiser</li>
+    </ul>
+
+    <h3>Ce qu'on ne peut pas garantir</h3>
+    <ul class="excl-list">
+      <li>Un volume de vente précis</li>
+      <li>Un retour sur investissement dans un délai donné</li>
+      <li>Que le stock sera écoulé en X mois</li>
+    </ul>
+
+    <div class="note-bar" style="margin-top: 14pt;">
+      <strong>Le digital est mesurable mais pas prévisible</strong>
+      Chaque euro dépensé est traçable &mdash; on sait exactement combien de personnes ont vu
+      la publicité, cliqué, visité le site, ajouté au panier, acheté. Mais le comportement d'achat
+      dépend de facteurs multiples. Ce qu'on garantit : <strong>transparence totale</strong>
+      sur les performances et <strong>optimisation continue</strong> basée sur les données réelles.
+    </div>
+
+    <h3>Conditions de réussite côté client</h3>
+
+    <div class="cond-grid" style="margin-top: 10pt;">
+      <div class="cond-num">1</div>
+      <div class="cond-text">
+        <h4>Un interlocuteur unique</h4>
+        <p>Une seule personne prend les décisions. Pas de validation par comité ou avis extérieurs qui contredisent la stratégie validée ensemble.</p>
+      </div>
+
+      <div class="cond-num">2</div>
+      <div class="cond-text">
+        <h4>Respect du processus</h4>
+        <p>Chaque livrable passe par maximum 2 tours de retour. Une fois validé, on avance &mdash; pas de retour en arrière.</p>
+      </div>
+
+      <div class="cond-num">3</div>
+      <div class="cond-text">
+        <h4>Réactivité</h4>
+        <p>Chaque semaine de retard côté client décale l'ensemble du planning.</p>
+      </div>
+
+      <div class="cond-num">4</div>
+      <div class="cond-text">
+        <h4>Contenu brut</h4>
+        <p>Photos des produits, histoire de la marque, éléments visuels existants. L'agence met en forme, mais la matière première vient du client.</p>
+      </div>
+
+      <div class="cond-num">5</div>
+      <div class="cond-text">
+        <h4>De la patience</h4>
+        <p>Construire une présence digitale prend du temps. Les résultats ne sont pas immédiats &mdash; ils sont progressifs. Les premières semaines posent les fondations. Les ventes suivent.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ph-footer">
+    <span>Indigo Studio</span>
+    <span>Page 10</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 11 · EXCLUSIONS + NEXT ==================== -->
+<section class="page">
+  <div class="ph-header">
+    <div class="mini-logo">INDIGO STUDIO</div>
+    <div class="mini-ref">Ébauche &middot; Relance Pogo Pogo &middot; 2026</div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">08 &middot; Périmètre et prochaines étapes</div>
+    <h2>Ce qui est inclus. Ce qui ne l'est pas<span class="dot">.</span></h2>
+
+    <h3>Ce qui n'est pas inclus</h3>
+    <p class="small muted">Pour éviter toute ambiguïté :</p>
+
+    <ul class="excl-list">
+      <li>Distribution physique (retail, coiffeurs, barbershops)</li>
+      <li>Création de nouveaux produits</li>
+      <li>Logistique et expédition (à organiser côté client)</li>
+      <li>Service client / SAV</li>
+      <li>Relations presse traditionnelles</li>
+      <li>Garantie de résultats chiffrés</li>
+    </ul>
+
+    <hr>
+
+    <h3>Prochaines étapes</h3>
+
+    <div style="margin-top: 10pt;">
+      <div class="phase">
+        <div class="num" style="color: var(--accent);">1</div>
+        <div class="body">
+          <h4>Réunion de cadrage</h4>
+          <p>Discuter de cette proposition, définir les priorités, valider le périmètre d'intervention et les ambitions.</p>
+        </div>
+        <div class="when"></div>
+      </div>
+
+      <div class="phase">
+        <div class="num" style="color: var(--accent);">2</div>
+        <div class="body">
+          <h4>Devis détaillé</h4>
+          <p>Sur base du périmètre validé, remise d'un devis précis par pilier avec planning.</p>
+        </div>
+        <div class="when"></div>
+      </div>
+
+      <div class="phase">
+        <div class="num" style="color: var(--accent);">3</div>
+        <div class="body">
+          <h4>Signature et kick-off</h4>
+          <p>Accord de mission Phase 1. Récupération des assets. Lancement du travail.</p>
+        </div>
+        <div class="when"></div>
+      </div>
+    </div>
+
+    <div style="margin-top: 30pt; text-align: center; padding: 20pt 0;">
+      <div class="rule-accent" style="margin: 0 auto 14pt auto;"></div>
+      <p style="font-size: 12pt; font-weight: 400; color: var(--ink);">
+        Prêt à relancer la machine ?
+      </p>
+      <p class="small muted">
+        Indigo Studio &middot; Avril 2026
+      </p>
+    </div>
+  </div>
+
+  <div class="ph-footer">
+    <span>Indigo Studio</span>
+    <span>Page 11</span>
+  </div>
+</section>
+
+</body>
+</html>
