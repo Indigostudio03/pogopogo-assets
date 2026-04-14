@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Offre commerciale · Relance Digitale POGO POGO · 6 mois</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0A0A0A;
+    --paper: #FFFFFF;
+    --mute: #6B6B6B;
+    --mute2: #9A9A9A;
+    --line: #E8E8E8;
+    --line-strong: #D0D0D0;
+    --accent: #8B6CC1;
+    --accent-light: #B49AE0;
+    --soft: #FAFAFA;
+    --dark: #1A1028;
+    --dark2: #2D1F45;
+    --ok: #2E7D5A;
+    --warn: #C0392B;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Jost', -apple-system, sans-serif;
+    color: var(--ink);
+    font-size: 10pt;
+    line-height: 1.55;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media screen {
+    body {
+      background: #D8D8D8;
+      padding: 16mm 0;
+    }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 20mm 18mm;
+      margin: 0 auto 14mm auto;
+      background: var(--paper);
+      box-shadow: 0 3mm 16mm rgba(0, 0, 0, 0.18);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  @media print {
+    @page { size: A4; margin: 20mm 18mm 20mm 18mm; }
+    body { background: var(--paper); }
+    .page {
+      width: auto;
+      min-height: calc(297mm - 40mm);
+      padding: 0;
+      margin: 0;
+      box-shadow: none;
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+    }
+    .page:last-child { page-break-after: auto; }
+    .cover-dark { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .machine-box, .pillar-header, .price-hero, .highlight-box {
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+  }
+
+  h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.01em; margin: 0; }
+  h1 { font-size: 30pt; font-weight: 300; letter-spacing: 0.01em; line-height: 1.1; }
+  h2 { font-size: 19pt; font-weight: 400; margin-bottom: 10pt; letter-spacing: 0.005em; line-height: 1.2; }
+  h3 { font-size: 12pt; font-weight: 500; margin: 18pt 0 8pt 0; text-transform: uppercase; letter-spacing: 0.1em; }
+  h4 { font-size: 10.5pt; font-weight: 600; margin: 8pt 0 3pt 0; }
+
+  p { margin: 6pt 0; }
+  strong { font-weight: 600; }
+  em { font-style: italic; color: var(--mute); }
+
+  .muted { color: var(--mute); }
+  .tiny { font-size: 8pt; }
+  .small { font-size: 9pt; }
+  .center { text-align: center; }
+  .right { text-align: right; }
+  .accent { color: var(--accent); }
+  .dot { color: var(--accent); font-weight: 700; }
+
+  .eyebrow {
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 500;
+    color: var(--mute);
+  }
+
+  hr { border: none; border-top: 1px solid var(--line); margin: 14pt 0; }
+
+  .rule-accent {
+    width: 50pt;
+    height: 3pt;
+    background: var(--accent);
+    margin: 14pt 0;
+  }
+
+  .content { flex: 1; }
+
+  .ph-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10pt;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 20pt;
+  }
+  .ph-header .mini-logo {
+    font-size: 10pt;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+  }
+  .ph-header .mini-ref {
+    font-size: 8pt;
+    color: var(--mute);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .ph-footer {
+    margin-top: auto;
+    font-size: 7.5pt;
+    color: var(--mute);
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--line);
+    padding-top: 8pt;
+  }
+
+  /* ============ COVER ============ */
+  .cover-dark {
+    background: linear-gradient(160deg, var(--dark) 0%, var(--dark2) 60%, #3D2A5C 100%);
+    color: #FFFFFF;
+    justify-content: space-between;
+    padding: 30mm 24mm;
+  }
+  .cover-dark .logo {
+    font-size: 13pt;
+    font-weight: 300;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  .cover-dark .title {
+    font-size: 44pt;
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: #FFFFFF;
+  }
+  .cover-dark .title .big {
+    display: block;
+    font-weight: 500;
+    color: var(--accent-light);
+  }
+  .cover-dark .eyebrow { color: var(--accent-light); opacity: 0.9; }
+  .cover-dark .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 14pt;
+  }
+  .cover-dark .meta .col { font-size: 9pt; line-height: 1.7; color: rgba(255,255,255,0.8); }
+  .cover-dark .meta .col strong {
+    display: block;
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent-light);
+    font-weight: 500;
+    margin-bottom: 3pt;
+  }
+
+  /* ============ LAYOUT ============ */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12pt; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10pt; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10pt; }
+
+  .card {
+    border: 1px solid var(--line);
+    border-left: 2pt solid var(--accent);
+    padding: 11pt 13pt;
+    background: var(--soft);
+  }
+  .card h4 { margin-top: 0; }
+  .card p { font-size: 9pt; color: var(--mute); margin: 3pt 0; }
+
+  .phase {
+    display: grid;
+    grid-template-columns: 26pt 1fr 80pt;
+    gap: 12pt;
+    padding: 9pt 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  .phase:last-child { border-bottom: none; }
+  .phase .num { font-size: 20pt; font-weight: 300; line-height: 1; color: var(--accent); }
+  .phase .body h4 { margin: 0 0 3pt 0; font-size: 10.5pt; text-transform: uppercase; letter-spacing: 0.08em; }
+  .phase .body p { margin: 2pt 0; font-size: 9pt; color: var(--mute); }
+  .phase .when {
+    text-align: right;
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    color: var(--accent);
+    padding-top: 4pt;
+  }
+
+  ul.clean { list-style: none; padding-left: 0; margin: 5pt 0; }
+  ul.clean li {
+    padding: 3pt 0 3pt 16pt;
+    position: relative;
+    font-size: 9pt;
+    line-height: 1.5;
+  }
+  ul.clean li:before {
+    content: "\203A";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 12pt;
+    top: 1pt;
+  }
+
+  .quote {
+    border-left: 3pt solid var(--accent);
+    padding: 4pt 0 4pt 14pt;
+    font-size: 11pt;
+    font-style: italic;
+    color: var(--ink);
+    margin: 12pt 0;
+    line-height: 1.5;
+  }
+
+  .note-bar {
+    background: var(--soft);
+    border-left: 3pt solid var(--accent);
+    padding: 10pt 14pt;
+    font-size: 9pt;
+    color: var(--ink);
+    margin: 12pt 0;
+  }
+  .note-bar strong {
+    display: block;
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--mute);
+    margin-bottom: 3pt;
+    font-weight: 600;
+  }
+
+  /* ============ MACHINE DIAGRAM ============ */
+  .machine-box {
+    border: 2pt solid var(--dark);
+    border-radius: 4pt;
+    padding: 16pt 18pt;
+    margin: 14pt 0;
+    background: linear-gradient(135deg, #FAF8FF 0%, #F3EEFF 100%);
+  }
+  .machine-box h4 {
+    text-align: center;
+    color: var(--dark);
+    font-size: 11pt;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 12pt;
+  }
+  .machine-grid {
+    display: grid;
+    grid-template-columns: 1fr 26pt 1fr 26pt 1fr 26pt 1fr;
+    align-items: center;
+    gap: 5pt;
+  }
+  .machine-node {
+    background: var(--dark);
+    color: #fff;
+    padding: 8pt 8pt;
+    text-align: center;
+    font-size: 7.5pt;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-radius: 2pt;
+  }
+  .machine-arrow {
+    text-align: center;
+    font-size: 14pt;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .machine-result {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 10pt;
+    padding-top: 10pt;
+    border-top: 1px dashed var(--accent);
+    font-size: 9pt;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  /* ============ EXCLUSION LIST ============ */
+  .excl-list { list-style: none; padding-left: 0; margin: 8pt 0; }
+  .excl-list li {
+    padding: 4pt 0 4pt 20pt;
+    position: relative;
+    font-size: 9pt;
+    color: var(--mute);
+    border-bottom: 1px solid var(--line);
+  }
+  .excl-list li:last-child { border-bottom: none; }
+  .excl-list li:before {
+    content: "\2717";
+    position: absolute;
+    left: 0;
+    color: var(--warn);
+    font-weight: 700;
+    font-size: 10pt;
+    top: 3pt;
+  }
+
+  /* ============ CONDITION LIST ============ */
+  .cond-grid {
+    display: grid;
+    grid-template-columns: 26pt 1fr;
+    gap: 8pt 12pt;
+    margin: 10pt 0;
+  }
+  .cond-num { font-size: 18pt; font-weight: 300; color: var(--accent); line-height: 1; }
+  .cond-text h4 { margin: 0 0 2pt 0; font-size: 9.5pt; }
+  .cond-text p { font-size: 8.5pt; color: var(--mute); margin: 0; }
+
+  /* ============ PILLAR BLOCK ============ */
+  .pillar {
+    border: 1px solid var(--line);
+    margin: 10pt 0;
+    padding: 0;
+  }
+  .pillar-header {
+    background: var(--dark);
+    color: #fff;
+    padding: 8pt 14pt;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .pillar-header h4 {
+    margin: 0;
+    color: #fff;
+    font-size: 10pt;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .pillar-header .tag {
+    font-size: 7pt;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent-light);
+    font-weight: 600;
+    background: rgba(139,108,193,0.2);
+    padding: 3pt 8pt;
+    border-radius: 2pt;
+  }
+  .pillar-body { padding: 12pt 14pt; }
+  .pillar-body p { font-size: 9pt; }
+  .pillar-meta {
+    background: var(--soft);
+    padding: 8pt 14pt;
+    border-top: 1px solid var(--line);
+    font-size: 8.5pt;
+    color: var(--mute);
+    display: flex;
+    justify-content: space-between;
+    gap: 14pt;
+  }
+  .pillar-meta strong { color: var(--ink); font-weight: 600; }
+
+  /* ============ PRICE TABLES ============ */
+  table.pricing {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10pt 0;
+    font-size: 9pt;
+  }
+  table.pricing th, table.pricing td {
+    padding: 7pt 9pt;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+  }
+  table.pricing th {
+    background: var(--soft);
+    font-weight: 600;
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--mute);
+  }
+  table.pricing td.num, table.pricing th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  table.pricing tr.total td {
+    font-weight: 700;
+    font-size: 10pt;
+    background: var(--soft);
+    border-top: 2pt solid var(--dark);
+    border-bottom: 2pt solid var(--dark);
+    color: var(--dark);
+  }
+  table.pricing tr.subtotal td {
+    font-weight: 600;
+    background: #FAFAFA;
+    border-top: 1px solid var(--line-strong);
+  }
+  table.pricing tr.discount td { color: var(--ok); font-style: italic; }
+
+  .price-hero {
+    background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);
+    color: #fff;
+    padding: 16pt 20pt;
+    border-radius: 4pt;
+    margin: 14pt 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20pt;
+    align-items: center;
+  }
+  .price-hero .label {
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent-light);
+    font-weight: 500;
+    margin-bottom: 4pt;
+  }
+  .price-hero .amount {
+    font-size: 28pt;
+    font-weight: 300;
+    line-height: 1.05;
+    color: #fff;
+  }
+  .price-hero .amount .unit {
+    font-size: 11pt;
+    color: var(--accent-light);
+    font-weight: 400;
+    display: inline-block;
+    margin-left: 4pt;
+  }
+  .price-hero p {
+    font-size: 9pt;
+    color: rgba(255,255,255,0.8);
+    margin: 3pt 0;
+  }
+
+  /* ============ COMPARE IA ============ */
+  .compare-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin: 14pt 0;
+    border: 1px solid var(--line);
+  }
+  .compare-col { padding: 14pt 16pt; }
+  .compare-col.without {
+    background: #FFF4F2;
+    border-right: 1px solid var(--line);
+  }
+  .compare-col.with { background: var(--soft); }
+  .compare-col .tag {
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+    display: inline-block;
+    padding: 3pt 8pt;
+    border-radius: 2pt;
+    margin-bottom: 8pt;
+  }
+  .compare-col.without .tag { background: var(--warn); color: #fff; }
+  .compare-col.with .tag { background: var(--ok); color: #fff; }
+  .compare-col .price {
+    font-size: 22pt;
+    font-weight: 300;
+    line-height: 1.1;
+    margin: 6pt 0 3pt 0;
+  }
+  .compare-col.without .price { color: var(--warn); }
+  .compare-col.with .price { color: var(--ok); }
+  .compare-col .price-sub {
+    font-size: 8.5pt;
+    color: var(--mute);
+  }
+
+  /* ============ PLANNING ============ */
+  .gantt {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10pt 0;
+    font-size: 8pt;
+  }
+  .gantt th, .gantt td {
+    padding: 5pt 4pt;
+    border: 1px solid var(--line);
+    text-align: center;
+    vertical-align: middle;
+  }
+  .gantt th {
+    background: var(--dark);
+    color: #fff;
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+  }
+  .gantt td.task {
+    text-align: left;
+    font-weight: 600;
+    font-size: 8.5pt;
+    background: var(--soft);
+    padding-left: 8pt;
+  }
+  .gantt td.bar { background: #fff; position: relative; height: 16pt; padding: 0; }
+  .gantt td.bar.on::after {
+    content: "";
+    display: block;
+    height: 7pt;
+    background: var(--accent);
+    margin: 0 2pt;
+    border-radius: 1pt;
+  }
+  .gantt td.bar.light::after { background: var(--accent-light); opacity: 0.7; }
+
+  /* ============ HIGHLIGHT BOX ============ */
+  .highlight-box {
+    background: linear-gradient(135deg, #FAF8FF 0%, #F0EAFE 100%);
+    border: 1px solid var(--accent-light);
+    padding: 14pt 18pt;
+    border-radius: 4pt;
+    margin: 14pt 0;
+  }
+  .highlight-box h4 {
+    color: var(--accent);
+    font-size: 10pt;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 6pt;
+  }
+  .highlight-box p { font-size: 9pt; margin: 4pt 0; }
+
+  /* ============ STAT CARD ============ */
+  .stat {
+    border: 1px solid var(--line);
+    padding: 12pt 14pt;
+    background: #fff;
+    text-align: left;
+  }
+  .stat .big-num {
+    font-size: 26pt;
+    font-weight: 300;
+    color: var(--accent);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .stat .label {
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--mute);
+    margin-top: 4pt;
+    font-weight: 500;
+  }
+  .stat p { font-size: 8.5pt; color: var(--mute); margin: 6pt 0 0 0; }
+
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px dotted var(--accent); }
+  a:hover { color: var(--dark); }
+</style>
+</head>
+<body>
+
+<!-- ==================== PAGE 1 · COVER ==================== -->
+<section class="page cover-dark">
+  <div class="content" style="display:flex; flex-direction:column; justify-content:space-between; flex:1;">
+
+    <div>
+      <div class="logo">Indigo Studio</div>
+    </div>
+
+    <div>
+      <div class="eyebrow">Offre commerciale &nbsp;&middot;&nbsp; 6 mois &nbsp;&middot;&nbsp; Avril 2026</div>
+      <div style="width:50pt; height:3pt; background:var(--accent-light); margin:14pt 0;"></div>
+      <h1 class="title" style="color:#fff;">
+        Relance digitale<br>
+        <span class="big">POGO POGO<span style="color:var(--accent-light);">.</span></span>
+      </h1>
+      <p style="font-size: 12pt; margin-top: 14pt; max-width: 135mm; color: rgba(255,255,255,0.75);">
+        Offre commerciale détaillée pour la relance complète de la marque
+        <strong style="color:#fff;">Pogo Pogo</strong> sur les marchés Benelux et France.
+        Stratégie, identité, site sur-mesure, contenus, réseaux sociaux, publicité et influence &mdash; sur 6 mois.
+      </p>
+    </div>
+
+    <div class="meta">
+      <div class="col">
+        <strong>Client</strong>
+        Jo Kemby<br>
+        Marque Pogo Pogo
+      </div>
+      <div class="col">
+        <strong>Agence</strong>
+        Indigo Studio
+      </div>
+      <div class="col right">
+        <strong>Date</strong>
+        Avril 2026<br>
+        <span style="color:rgba(255,255,255,0.6); font-size:8pt;">Valable 30 jours</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== PAGE 2 · RÉSUMÉ EXÉCUTIF ==================== -->
+<section class="page">
+  <div class="ph-header">
+    <div class="mini-logo">INDIGO STUDIO</div>
+    <div class="mini-ref">Offre &middot; Relance Pogo Pogo &middot; 6 mois</div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">Résumé exécutif</div>
+    <h2>Ce que cette offre couvre<span class="dot">.</span></h2>
+
+    <p>
+      Pogo Pogo est une marque de parfumerie et capillaire née en 2008. Les produits existent
+      (3 parfums développés avec <strong>Mane</strong>, gamme capillaire complète),
+      le stock est disponible &mdash; mais la marque est <strong>invisible</strong> sur le digital :
+      site hors ligne, zéro présence sociale, zéro trafic.
+    </p>
+
+    <p>
+      Le problème n'est ni le produit, ni le prix. C'est la <strong>visibilité</strong> et la
+      <strong>désirabilité</strong>. Cette offre finance la reconstruction complète de la présence
+      digitale de la marque sur 6 mois, en deux phases.
+    </p>
+
+    <h3>Les 6 leviers que nous activons</h3>
+    <ul class="clean">
+      <li><strong>Reconstruire l'univers Pogo Pogo</strong> &mdash; positionnement, DNA, identité graphique plus fraîche et rock'n'roll, qui colle aux codes 2026.</li>
+      <li><strong>Construire une vitrine digitale unique</strong> &mdash; site e-commerce <strong>100 % sur-mesure</strong> (pas de Shopify, pas de template), développé à partir d'une vraie page blanche.</li>
+      <li><strong>Mettre en orbite les réseaux sociaux</strong> &mdash; Instagram, TikTok, Facebook, comme moteur de découverte et terrain de communauté.</li>
+      <li><strong>Activer la publicité payante</strong> &mdash; Meta Ads, TikTok Ads, comme accélérateur de trafic qualifié.</li>
+      <li><strong>Amorcer l'influence micro-influenceurs</strong> &mdash; à partir du mois 4, parfum / beauté / lifestyle.</li>
+      <li><strong>Exploiter l'IA générative</strong> &mdash; tout au long du dispositif, pour produire vite et tenir un coût 2 à 3 fois inférieur au même travail exécuté sans IA.</li>
+    </ul>
+
+    <h3>Investissement global 6 mois</h3>
+
+    <table class="pricing">
+      <thead>
+        <tr>
+          <th>Poste</th>
+          <th class="num">Montant HT</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Honoraires Indigo Studio &mdash; Phase 1 (M1-M3, forfait mensuel)</td>
+          <td class="num"><strong>21 600 €</strong></td>
+        </tr>
+        <tr>
+          <td>Honoraires Indigo Studio &mdash; Phase 2 (M4-M6, forfait mensuel)</td>
+          <td class="num"><strong>11 400 €</strong></td>
+        </tr>
+        <tr>
+          <td>Frais plateformes &amp; outils (inclus dans les forfaits, 6 mois)</td>
+          <td class="num"><em>inclus</em></td>
+        </tr>
+        <tr>
+          <td>Budget média publicitaire recommandé (6 mois)</td>
+          <td class="num">9 000 € &mdash; 12 000 €</td>
+        </tr>
+        <tr class="total">
+          <td>Total investissement marque 6 mois</td>
+          <td class="num">42 000 € &mdash; 45 000 € HT</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight-box">
+      <h4>À comparer à ~100 000 € HT sans IA générative</h4>
+      <p>
+        Le même périmètre exécuté sans IA (production photo/vidéo traditionnelle, copywriting à la main,
+        déclinaisons manuelles…) coûterait environ <strong>3× plus cher</strong>.
+        Le différentiel est répercuté au client sous forme d'une remise structurelle sur les honoraires.
+        Voir §&nbsp;11.
+      </p>
+    </div>
+  </div>
+
+  <div class="ph-footer">
+    <span>Indigo Studio &middot; Offre Pogo Pogo</span>
+    <span>Page 2</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 3 · MARQUE : PRODUIT ==================== -->
+<section class="page">
+  <div class="ph-header">
+    <div class="mini-logo">INDIGO STUDIO</div>
+    <div class="mini-ref">Offre &middot; Relance Pogo Pogo &middot; 6 mois</div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">01 &middot; La marque</div>
+    <h2>Pogo Pogo &mdash; ce qu'il y a sur la table<span class="dot">.</span></h2>
+
+    <p>
+      Avant de chiffrer, il faut être clair sur ce qu'on manipule. Pogo Pogo n'est pas une idée de marque
+      à inventer &mdash; c'est un actif existant à faire revivre.
+    </p>
+
+    <h3>Le produit</h3>
+
+    <div class="grid-2" style="margin-top: 6pt;">
+      <div class="card">
+        <h4>3 parfums signatures</h4>
+        <p>Classic, Girls, Limited Edition &mdash; développés avec <strong>Mane</strong>, l'une des maisons de composition les plus respectées au monde (top 5 mondial avec Givaudan, Firmenich, IFF, Symrise).</p>
+      </div>
+      <div class="card">
+        <h4>Gamme capillaire complète</h4>
+        <p>Gel, wax, laque &mdash; cohérente avec l'univers coiffure/styling d'origine de la marque.</p>
+      </div>
+      <div class="card">
+        <h4>Prix public ~39 €</h4>
+        <p>Positionnement <em>accessible premium</em> : au-dessus du mass market (10-25 €), en dessous du luxe (80 €+). Cohérent pour un parfum de qualité.</p>
+      </div>
+      <div class="card">
+        <h4>Stock disponible</h4>
+        <p>Prêt à être commercialisé. On ne relance pas un prototype &mdash; on relance un actif qui dort.</p>
+      </div>
+    </div>
+
+    <div class="quote">
+      Le produit existe. La marque, aux yeux du marché digital, n'existe pas encore.
+    </div>
+
+    <h3>L'état actuel (ce que l'offre finance à renverser)</h3>
+
+    <table class="pricing">
+      <thead>
+        <tr>
+          <th>État actuel</th>
+          <th>État visé à 6 mois</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Site offline</td><td>Site e-commerce custom en ligne</td></tr>
+        <tr><td>0 follower, 0 compte actif</td><td>Communauté IG + TikTok, ~3 posts/semaine</td></tr>
+        <tr><td>Identité datée (marque créée il y a 18 ans)</td><td>Identité graphique refaite, codes 2026</td></tr>
+        <tr><td>Aucune publicité</td><td>Campagnes Meta + TikTok actives et optimisées</td></tr>
+        <tr><td>Aucune notoriété</td><td>Premières mentions, premiers UGC, micro-influenceurs activés</td></tr>
+        <tr><td>Aucune donnée</td><td>Tracking complet, KPI mesurés, apprentissage piloté</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ph-footer">
+    <span>Indigo Studio &middot; Offre Pogo Pogo</span>
+    <span>Page 3</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 4 · MARCHÉ ==================== -->
+<section class="page">
+  <div class="ph-header">
+    <div class="mini-logo">INDIGO STUDIO</div>
+    <div class="mini-ref">Offre &middot; Relance Pogo Pogo &middot; 6 mois</div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">02 &middot; Le marché</div>
+    <h2>Pourquoi c'est le bon moment<span class="dot">.</span></h2>
+
+    <p>
+      Relancer une marque créée il y a 18 ans, dans un marché saturé, peut sembler contre-intuitif.
+      Les chiffres disent le contraire : le parfum est en pleine explosion, et jamais une marque
+      indépendante n'a eu autant de leviers pour exister.
+    </p>
+
+    <div class="grid-3" style="margin-top: 10pt;">
+      <div class="stat">
+        <div class="big-num">+8,9%</div>
+        <div class="label">Croissance marché parfum 2024</div>
+        <p>Le segment beauté qui progresse le plus vite en Europe.</p>
+      </div>
+      <div class="stat">
+        <div class="big-num">66%</div>
+        <div class="label">Découverte via TikTok / IG</div>
+        <p>Des 18-35 ans découvrent de nouveaux parfums via les réseaux sociaux.</p>
+      </div>
+      <div class="stat">
+        <div class="big-num">3×</div>
+        <div class="label">Marques indés qui percent</div>
+        <p>Phlur, DedCool, Vyrao, Fugazzi, Le Monde Gourmand : celles qui racontent une histoire gagnent.</p>
+      </div>
+    </div>
+
+    <h3>L'opportunité spécifique Pogo Pogo</h3>
+
+    <p>
+      Le consommateur cherche de <strong>l'authenticité</strong>, une signature, une narration.
+      Les grandes maisons sont perçues comme fades, formatées, interchangeables. Il y a un boulevard pour
+      une marque indépendante européenne avec&nbsp;:
+    </p>
+
+    <ul class="clean">
+      <li><strong>Un nom sonore et différenciant</strong> &mdash; "Pogo Pogo" évoque la scène punk/rock, l'énergie, le mouvement. Impossible à confondre.</li>
+      <li><strong>Un vrai savoir-faire derrière</strong> &mdash; la signature Mane n'est pas un argument marketing, c'est une preuve de qualité.</li>
+      <li><strong>Une histoire de fondateur</strong> &mdash; Jo Kemby, 18 ans de marque, un terrain narratif déjà là.</li>
+      <li><strong>Un univers visuel à reconstruire</strong> &mdash; c'est un avantage, pas un handicap : on peut poser des codes neufs et radicaux.</li>
+    </ul>
+
+    <div class="note-bar">
+      <strong>Le piège à éviter</strong>
+      Les grandes marques absorbent le bruit. Sans un univers fort, sans un ton affirmé, sans un budget
+      publicitaire suffisant pour exister, une marque indépendante se noie. Ce n'est pas une question de
+      talent &mdash; c'est une question de <strong>cohérence</strong> et de <strong>moyens</strong>.
+      Cette offre dimensionne les deux.
+    </div>
+  </div>
+
+  <div class="ph-footer">
+    <span>Indigo Studio &middot; Offre Pogo Pogo</span>
+    <span>Page 4</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 5 · DNA / POSITIONNEMENT ==================== -->
+<section class="page">
+  <div class="ph-header">
+    <div class="mini-logo">INDIGO STUDIO</div>
+    <div class="mini-ref">Offre &middot; Relance Pogo Pogo &middot; 6 mois</div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">03 &middot; Identité &amp; DNA</div>
+    <h2>La marque qu'on va incarner<span class="dot">.</span></h2>
+
+    <p>
+      L'ancienne approche plaçait <strong>Jokemby</strong> comme marque ombrelle, avec un site assez
+      institutionnel, plutôt sage. Ça ne fonctionne pas pour une marque de parfum en 2026.
+    </p>
+
+    <div class="highlight-box">
+      <h4>La bascule &mdash; Pogo Pogo devient LA marque</h4>
+      <p>
+        Pogo Pogo devient le nom commercial, le nom digital, le nom qu'on retient. Jokemby passe en
+        arrière-plan comme maison fondatrice. Le marché du parfum fonctionne par <strong>nom de marque
+        produit</strong> &mdash; c'est "Pogo Pogo" que les gens doivent chercher et acheter.
+      </p>
+    </div>
+
+    <h3>Le style &mdash; frais, rock'n'roll, vivant</h3>
+
+    <div class="grid-2" style="margin-top: 8pt;">
+      <div class="card">
+        <h4>Nom &amp; territoire sonore</h4>
+        <p>"Pogo Pogo" évoque le pogo, la scène punk/rock, la collision joyeuse, l'énergie. On assume pleinement ce territoire &mdash; pas de repli sur un code parfum "sérieux, raffiné, feutré".</p>
+      </div>
+      <div class="card">
+        <h4>Ton de voix</h4>
+        <p>Frais, légèrement irrévérencieux, direct, vivant. On s'adresse à quelqu'un qui en a marre des marques qui se prennent au sérieux.</p>
+      </div>
+      <div class="card">
+        <h4>Univers visuel</h4>
+        <p>Couleurs saturées plutôt que pastel institutionnel. Typographies affirmées. Compositions moins centrées/symétriques. Références culturelles (scène indé, musique, attitude). Grain, texture, matière.</p>
+      </div>
+      <div class="card">
+        <h4>Style de contenu</h4>
+        <p>Mélange brand content soigné + prises de vue spontanées + UGC. Pas de glossy froid à la L'Oréal. De la vie, du mouvement, de l'imperfection assumée.</p>
+      </div>
+    </div>
+
+    <div class="quote">
+      Pogo Pogo = le parfum qui ne fait pas comme les autres parfums.<br>
+      Un parfum qui a une voix, une attitude, un caractère.
+    </div>
+
+    <h3>Ce que ça implique concrètement</h3>
+
+    <p>
+      Refonte de l'identité graphique (logo, palette, typographies, système visuel) &mdash; parce qu'une
+      marque créée il y a 18 ans ne peut pas ressortir intacte. Les codes ont bougé, les audiences ont
+      bougé, les plateformes ont bougé.
+    </p>
+
+    <div class="note-bar">
+      <strong>Un contexte qu'on a en tête</strong>
+      Une première tentative de relance a existé, bloquée par des décisions trop lentes et trop partagées.
+      <strong>Condition n°1 de cette mission</strong> : un interlocuteur unique, décisionnaire, qui tranche.
+      Ce point est formalisé en §&nbsp;12 (modalités contractuelles).
+    </div>
+  </div>
+
+  <div class="ph-footer">
+    <span>Indigo Studio &middot; Offre Pogo Pogo</span>
+    <span>Page 5</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 6 · LA MACHINE ==================== -->
+<section class="page">
+  <div class="ph-header">
+    <div class="mini-logo">INDIGO STUDIO</div>
+    <div class="mini-ref">Offre &middot; Relance Pogo Pogo &middot; 6 mois</div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">04 &middot; L'approche</div>
+    <h2>Une machine intégrée<span class="dot">.</span></h2>
+
+    <p>
+      Chaque brique est indispensable. Retirer une brique fait chuter le rendement des autres. C'est pour ça
+      que l'offre est <strong>intégrée</strong> &mdash; on ne la découpe pas.
+    </p>
+
+    <div class="machine-box">
+      <h4>La machine Pogo Pogo</h4>
+      <div class="machine-grid">
+        <div class="machine-node">Positionnement<br>&amp; DNA</div>
+        <div class="machine-arrow">&rarr;</div>
+        <div class="machine-node">Identité<br>graphique</div>
+        <div class="machine-arrow">&rarr;</div>
+        <div class="machine-node">Contenu<br>&amp; Social</div>
+        <div class="machine-arrow">&rarr;</div>
+        <div class="machine-node">Distribution<br>digitale</div>
+      </div>
+      <div class="machine-result">Visibilité &rarr; Désir &rarr; Trafic &rarr; Ventes</div>
+    </div>
+
+    <div class="grid-2" style="margin-top: 12pt;">
+      <div class="card">
+        <h4>Site e-commerce custom</h4>
+        <p>Le point de conversion. Unique à la marque, pas un template. C'est lui qui transforme l'attention en vente.</p>
+      </div>
+      <div class="card">
+        <h4>Réseaux sociaux</h4>
+        <p>Instagram, TikTok, Facebook. Vitrine quotidienne, moteur de découverte, terrain de communauté.</p>
+      </div>
+      <div class="card">
+        <h4>Publicité payante</h4>
+        <p>Meta + TikTok Ads. L'accélérateur : sans pub, pas de volume, pas de données, pas d'apprentissage.</p>
+      </div>
+      <div class="card">
+        <h4>Influence (dès M4)</h4>
+        <p>Micro-influenceurs parfum / beauté. Ancre la crédibilité, démultiplie le contenu, élargit l'audience.</p>
+      </div>
+    </div>
+
+    <h3>Les 7 piliers d'exécution</h3>
+
+    <table class="pricing">
+      <thead>
+        <tr>
+          <th>Pilier</th>
+          <th>Objet</th>
+          <th>Phase</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>A</strong></td><td>Stratégie, positionnement, DNA</td><td>M1</td></tr>
+        <tr><td><strong>B</strong></td><td>Refonte identité graphique</td><td>M1-M2</td></tr>
+        <tr><td><strong>C</strong></td><td>Site e-commerce 100 % sur-mesure</td><td>M1-M3</td></tr>
+        <tr><td><strong>D</strong></td><td>Contenu (brand + IA + UGC)</td><td>M1-M6</td></tr>
+        <tr><td><strong>E</strong></td><td>Gestion réseaux sociaux</td><td>M1-M6</td></tr>
+        <tr><td><strong>F</strong></td><td>Publicité payante Meta + TikTok</td><td>M2-M6</td></tr>
+        <tr><td><strong>G</strong></td><td>Influence micro-influenceurs</td><td>M4-M6</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ph-footer">
+    <span>Indigo Studio &middot; Offre Pogo Pogo</span>
+    <span>Page 6</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 7 · PILIERS A + B ==================== -->
+<section class="page">
+  <div class="ph-header">
+    <div class="mini-logo">INDIGO STUDIO</div>
+    <div class="mini-ref">Offre &middot; Relance Pogo Pogo &middot; 6 mois</div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">05 &middot; Piliers d'exécution (1/3)</div>
+    <h2>Stratégie &amp; identité<span class="dot">.</span></h2>
+
+    <div class="pillar">
+      <div class="pillar-header">
+        <h4>Pilier A &middot; Stratégie, positionnement, DNA</h4>
+        <div class="tag">Fondation</div>
+      </div>
+      <div class="pillar-body">
+        <p><strong>Livrables&nbsp;:</strong></p>
+        <ul class="clean">
+          <li>Audit marque, marché, concurrence directe et indirecte (indés européennes, grandes maisons, marques disruptives)</li>
+          <li>Plateforme de marque Pogo Pogo : mission, vision, valeurs, promesse, personnalité, territoire, preuves</li>
+          <li>Architecture des messages par produit (Classic, Girls, Limited Edition, gamme capillaire) et par cible</li>
+          <li>Ton de voix &amp; guidelines éditoriales</li>
+          <li>Brief créatif unique qui nourrit tous les autres piliers</li>
+        </ul>
+        <p><strong>Méthode&nbsp;:</strong> 2 ateliers avec Jo / Camille. Exploitation IA pour la recherche concurrentielle et le benchmark. Synthèse stratégique rédigée à la main.</p>
+      </div>
+      <div class="pillar-meta">
+        <span><strong>Charge&nbsp;:</strong> 4 jours &middot; 32 h</span>
+        <span><strong>Période&nbsp;:</strong> Mois 1</span>
+        <span><strong>Montant&nbsp;:</strong> 2 400 € HT</span>
+      </div>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-header">
+        <h4>Pilier B &middot; Refonte de l'identité graphique</h4>
+        <div class="tag">Signature visuelle</div>
+      </div>
+      <div class="pillar-body">
+        <p><strong>Livrables&nbsp;:</strong></p>
+        <ul class="clean">
+          <li>Direction artistique complète (moodboards, pistes, ajustement, validation)</li>
+          <li>Système visuel : logo Pogo Pogo retravaillé ou repensé, palette, typos, grille, iconographie, traitements photo, codes d'animation</li>
+          <li>Mini charte applicable partout (site, social, pub, packaging secondaire)</li>
+          <li>Déclinaisons clés : avatar social, bannières, templates post / story / reel, templates pub Meta &amp; TikTok</li>
+        </ul>
+        <p><strong>Méthode&nbsp;:</strong> exploration DA traditionnelle + exploitation IA (Midjourney, Firefly, Stable Diffusion) pour accélérer les moodboards et tester des territoires visuels en volume. Finitions à la main.</p>
+      </div>
+      <div class="pillar-meta">
+        <span><strong>Charge&nbsp;:</strong> 6 jours &middot; 48 h</span>
+        <span><strong>Période&nbsp;:</strong> Mois 1 - Mois 2</span>
+        <span><strong>Montant&nbsp;:</strong> 3 600 € HT</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="ph-footer">
+    <span>Indigo Studio &middot; Offre Pogo Pogo</span>
+    <span>Page 7</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 8 · PILIER C (SITE) ==================== -->
+<section class="page">
+  <div class="ph-header">
+    <div class="mini-logo">INDIGO STUDIO</div>
+    <div class="mini-ref">Offre &middot; Relance Pogo Pogo &middot; 6 mois</div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">05 &middot; Piliers d'exécution (2/3)</div>
+    <h2>Le site &mdash; 100 % sur-mesure<span class="dot">.</span></h2>
+
+    <div class="highlight-box">
+      <h4>Parti pris : pas de Shopify, pas de template</h4>
+      <p>
+        L'ancien site Jokemby était "trop standard" &mdash; on ne refait pas la même erreur.
+        On <strong>développe un site custom</strong>, de A à Z, pensé pour l'univers Pogo Pogo.
+        La contrepartie d'une vraie marque, c'est une vraie vitrine : unique, singulière, impossible
+        à confondre avec une autre.
+      </p>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-header">
+        <h4>Pilier C &middot; Site e-commerce custom (page blanche)</h4>
+        <div class="tag">Indispensable</div>
+      </div>
+      <div class="pillar-body">
+        <p><strong>Stack envisagée&nbsp;:</strong> front-end moderne (Next.js / Astro), CMS headless léger pour les contenus éditoriaux, commerce headless (Medusa, Snipcart ou équivalent), hébergement sur infrastructure performante (Vercel / équivalent). Choix final arbitré en M1 selon les besoins exacts.</p>
+
+        <p><strong>Livrables&nbsp;:</strong></p>
+        <ul class="clean">
+          <li>Architecture et arborescence du site (home, collection, fiches produit, univers de marque, histoire, FAQ, CGV, contact, checkout optimisé)</li>
+          <li>Design sur-mesure &mdash; pas de template standard retouché. On part d'une vraie page blanche</li>
+          <li>Développement front-end custom (animations, transitions, micro-interactions qui portent l'univers rock'n'roll / frais de la marque)</li>
+          <li>Back-end e-commerce headless (catalogue, panier, tunnel d'achat, comptes client, gestion commandes)</li>
+          <li>Pages produits optimisées conversion : photo, storytelling, preuves, cross-sell</li>
+          <li>Intégration paiement <strong>Stripe</strong>, livraison Benelux + France, politique retours, emails transactionnels sur-mesure</li>
+          <li>Mobile-first (80 % du trafic social est mobile)</li>
+          <li>Tracking complet : GA4, pixel Meta, pixel TikTok, événements d'achat, abandons panier, dashboard de suivi</li>
+          <li>Recette, mise en ligne, passation (documentation, formation admin)</li>
+        </ul>
+        <p><strong>Méthode&nbsp;:</strong> maquettes Figma &rarr; développement itératif &rarr; recette. IA utilisée pour génération de visuels produits en situation, mockups lifestyle, déclinaisons, copywriting initial des fiches (retravaillé à la main).</p>
+      </div>
+      <div class="pillar-meta">
+        <span><strong>Charge&nbsp;:</strong> 22 jours &middot; 176 h</span>
+        <span><strong>Période&nbsp;:</strong> M1 (conception) &rarr; M2 (dév) &rarr; M3 (recette + go live)</span>
+        <span><strong>Montant&nbsp;:</strong> 13 200 € HT</span>
+      </div>
+    </div>
+
+    <p class="small muted">
+      Un site custom demande plus de temps qu'un template &mdash; c'est le prix de l'unicité, et c'est ce qui
+      fera qu'un visiteur reconnaîtra Pogo Pogo en 2 secondes. Sans ça, on recommence à construire
+      une marque avec une façade de générique.
+    </p>
+  </div>
+
+  <div class="ph-footer">
+    <span>Indigo Studio &middot; Offre Pogo Pogo</span>
+    <span>Page 8</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 9 · PILIERS D + E + F ==================== -->
+<section class="page">
+  <div class="ph-header">
+    <div class="mini-logo">INDIGO STUDIO</div>
+    <div class="mini-ref">Offre &middot; Relance Pogo Pogo &middot; 6 mois</div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">05 &middot; Piliers d'exécution (3/3)</div>
+    <h2>Contenu, social, publicité, influence<span class="dot">.</span></h2>
+
+    <div class="pillar">
+      <div class="pillar-header">
+        <h4>Pilier D &middot; Contenu (brand + IA + UGC)</h4>
+        <div class="tag">Moteur</div>
+      </div>
+      <div class="pillar-body">
+        <p>Ligne éditoriale par plateforme (IG / TikTok / Facebook). Calendrier de publication 12 semaines. Rythme cible <strong>~3 publications/semaine/plateforme principale</strong>, ajusté après M1. Mix de formats : reels courts, carousels, stories, posts, TikTok natifs. 3 registres complémentaires&nbsp;: <strong>brand content</strong> premium (DA soignée), <strong>contenu IA</strong> (visuels génératifs, déclinaisons, variations, UGC-like) pour tenir le volume, et <strong>UGC vrai</strong> (briefs créateurs, scripts, montage). Copywriting, hashtags, légendes, hooks &mdash; tout pensé plateforme.</p>
+      </div>
+      <div class="pillar-meta">
+        <span><strong>Charge Phase 1&nbsp;:</strong> 12 jours &middot; 96 h</span>
+        <span><strong>Montant&nbsp;:</strong> 7 200 € HT (Phase 1)</span>
+      </div>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-header">
+        <h4>Pilier E &middot; Gestion réseaux sociaux</h4>
+        <div class="tag">Présence</div>
+      </div>
+      <div class="pillar-body">
+        <p>Création / repositionnement des comptes Instagram, TikTok, Facebook Pogo Pogo. Publication selon calendrier. Community management (DM, commentaires, mentions) &mdash; fenêtre de réponse sous <strong>24 h ouvrées</strong>. Modération, veille tendances, adaptation des formats. Reporting mensuel (portée, engagement, croissance, meilleurs contenus).</p>
+      </div>
+      <div class="pillar-meta">
+        <span><strong>Charge Phase 1&nbsp;:</strong> 6 jours &middot; 48 h</span>
+        <span><strong>Montant&nbsp;:</strong> 3 600 € HT (Phase 1)</span>
+      </div>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-header">
+        <h4>Pilier F &middot; Publicité payante (Meta + TikTok)</h4>
+        <div class="tag">Accélérateur</div>
+      </div>
+      <div class="pillar-body">
+        <p>Stratégie publicitaire : objectifs par phase (notoriété &rarr; considération &rarr; conversion), audiences, exclusions, lookalikes. Production créative : statics + vidéos, 5-8 concepts / mois, A/B testing systématique. Installation technique : pixel Meta, pixel TikTok, API Conversion, événements, catalog feed produits. Lancement et optimisation continue. Reporting mensuel : CPC, CPA, ROAS, apprentissages.</p>
+      </div>
+      <div class="pillar-meta">
+        <span><strong>Charge Phase 1&nbsp;:</strong> 6 jours &middot; 48 h</span>
+        <span><strong>Montant&nbsp;:</strong> 3 600 € HT (Phase 1, hors budget média)</span>
+      </div>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-header">
+        <h4>Pilier G &middot; Influence micro-influenceurs (dès M4)</h4>
+        <div class="tag">Crédibilité</div>
+      </div>
+      <div class="pillar-body">
+        <p><strong>Ce qu'on ne fait pas&nbsp;:</strong> chasser des macro-influenceurs coûteux.
+        <strong>Ce qu'on fait&nbsp;:</strong> identifier et activer <strong>15 à 25 micro-influenceurs</strong> (5k-50k followers) sur la niche parfum / beauté / lifestyle / rock &mdash; profils authentiques, engagement réel, audience Benelux + France. Scouting (50&rarr;20), prise de contact, négociation (majoritairement barter + petit budget monétaire), briefs créatifs, envois produits, suivi, collecte des contenus. Ré-exploitation en whitelisting Meta/TikTok Ads, repost, UGC sur le site. Reporting : reach, sentiment, ventes attribuables (codes promo dédiés).</p>
+      </div>
+      <div class="pillar-meta">
+        <span><strong>Charge Phase 2&nbsp;:</strong> 8 jours &middot; 64 h</span>
+        <span><strong>Montant&nbsp;:</strong> 4 800 € HT (Phase 2)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="ph-footer">
+    <span>Indigo Studio &middot; Offre Pogo Pogo</span>
+    <span>Page 9</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 10 · PLANNING 6 MOIS ==================== -->
+<section class="page">
+  <div class="ph-header">
+    <div class="mini-logo">INDIGO STUDIO</div>
+    <div class="mini-ref">Offre &middot; Relance Pogo Pogo &middot; 6 mois</div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">06 &middot; Planning</div>
+    <h2>6 mois, 4 temps<span class="dot">.</span></h2>
+
+    <table class="gantt">
+      <thead>
+        <tr>
+          <th style="width: 25%;">Activité</th>
+          <th>M1</th><th>M2</th><th>M3</th><th>M4</th><th>M5</th><th>M6</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="task">A &middot; Stratégie &amp; DNA</td>
+          <td class="bar on"></td><td class="bar"></td><td class="bar"></td><td class="bar"></td><td class="bar"></td><td class="bar"></td>
+        </tr>
+        <tr>
+          <td class="task">B &middot; Identité graphique</td>
+          <td class="bar on"></td><td class="bar on"></td><td class="bar"></td><td class="bar"></td><td class="bar"></td><td class="bar"></td>
+        </tr>
+        <tr>
+          <td class="task">C &middot; Site custom</td>
+          <td class="bar on"></td><td class="bar on"></td><td class="bar on"></td><td class="bar light"></td><td class="bar light"></td><td class="bar light"></td>
+        </tr>
+        <tr>
+          <td class="task">D &middot; Contenu</td>
+          <td class="bar on"></td><td class="bar on"></td><td class="bar on"></td><td class="bar on"></td><td class="bar on"></td><td class="bar on"></td>
+        </tr>
+        <tr>
+          <td class="task">E &middot; Réseaux sociaux</td>
+          <td class="bar light"></td><td class="bar on"></td><td class="bar on"></td><td class="bar on"></td><td class="bar on"></td><td class="bar on"></td>
+        </tr>
+        <tr>
+          <td class="task">F &middot; Publicité Meta/TikTok</td>
+          <td class="bar light"></td><td class="bar on"></td><td class="bar on"></td><td class="bar on"></td><td class="bar on"></td><td class="bar on"></td>
+        </tr>
+        <tr>
+          <td class="task">G &middot; Influence</td>
+          <td class="bar"></td><td class="bar"></td><td class="bar"></td><td class="bar on"></td><td class="bar on"></td><td class="bar on"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Jalons clés</h3>
+
+    <div class="phase">
+      <div class="num">1</div>
+      <div class="body">
+        <h4>Fin de M1 &mdash; Fondations posées</h4>
+        <p>Plateforme de marque validée. Identité graphique V1 validée. Maquettes site validées. Comptes sociaux créés.</p>
+      </div>
+      <div class="when">Mois 1</div>
+    </div>
+
+    <div class="phase">
+      <div class="num">2</div>
+      <div class="body">
+        <h4>Fin de M2 &mdash; Pré-lancement</h4>
+        <p>Site en pré-prod. Premières publications sociales. Créas publicitaires en recette.</p>
+      </div>
+      <div class="when">Mois 2</div>
+    </div>
+
+    <div class="phase">
+      <div class="num">3</div>
+      <div class="body">
+        <h4>Fin de M3 &mdash; La machine tourne</h4>
+        <p><strong>Site en ligne.</strong> Campagnes Meta + TikTok lancées. 36 publications sociales publiées. Premier reporting consolidé.</p>
+      </div>
+      <div class="when">Mois 3</div>
+    </div>
+
+    <div class="phase">
+      <div class="num">4</div>
+      <div class="body">
+        <h4>Fin de M4 &mdash; Influence amorcée</h4>
+        <p>Programme influence lancé. Optimisation site sur base des premières données.</p>
+      </div>
+      <div class="when">Mois 4</div>
+    </div>
+
+    <div class="phase">
+      <div class="num">5</div>
+      <div class="body">
+        <h4>Fin de M5 &mdash; Premiers contenus influenceurs</h4>
+        <p>Contenus influenceurs publiés, re-exploités en pub, en UGC sur le site.</p>
+      </div>
+      <div class="when">Mois 5</div>
+    </div>
+
+    <div class="phase">
+      <div class="num">6</div>
+      <div class="body">
+        <h4>Fin de M6 &mdash; Bilan 6 mois</h4>
+        <p>Bilan complet. Décision sur la suite (reconduction 3 mois, pivot, extension).</p>
+      </div>
+      <div class="when">Mois 6</div>
+    </div>
+  </div>
+
+  <div class="ph-footer">
+    <span>Indigo Studio &middot; Offre Pogo Pogo</span>
+    <span>Page 10</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 11 · CHIFFRAGE PHASE 1 ==================== -->
+<section class="page">
+  <div class="ph-header">
+    <div class="mini-logo">INDIGO STUDIO</div>
+    <div class="mini-ref">Offre &middot; Relance Pogo Pogo &middot; 6 mois</div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">07 &middot; Chiffrage &mdash; Phase 1</div>
+    <h2>Mois 1 &agrave; 3 &mdash; Le lancement<span class="dot">.</span></h2>
+
+    <div class="grid-3" style="margin-top: 6pt;">
+      <div class="stat">
+        <div class="big-num">75 €</div>
+        <div class="label">Tarif horaire HT</div>
+      </div>
+      <div class="stat">
+        <div class="big-num">600 €</div>
+        <div class="label">Tarif jour HT (8&nbsp;h)</div>
+      </div>
+      <div class="stat">
+        <div class="big-num">200 €</div>
+        <div class="label">Frais plateformes /&nbsp;mois</div>
+      </div>
+    </div>
+
+    <p class="small muted" style="margin-top: 10pt;">
+      Frais plateformes = Midjourney, RunwayML, ElevenLabs, ChatGPT Team, hébergement site,
+      outils d'édition vidéo, licences fonts. Refacturés au réel, plafonnés à 200 €/mois &mdash;
+      inclus dans le forfait mensuel.
+    </p>
+
+    <h3>Décomposition en heures &mdash; Phase 1 (M1-M3)</h3>
+
+    <table class="pricing">
+      <thead>
+        <tr>
+          <th>Pilier</th>
+          <th class="num">Jours</th>
+          <th class="num">Heures</th>
+          <th class="num">Montant HT</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>A &mdash; Stratégie &amp; positionnement</td><td class="num">4</td><td class="num">32</td><td class="num">2 400 €</td></tr>
+        <tr><td>B &mdash; Refonte identité graphique</td><td class="num">6</td><td class="num">48</td><td class="num">3 600 €</td></tr>
+        <tr><td>C &mdash; Site e-commerce custom</td><td class="num">22</td><td class="num">176</td><td class="num">13 200 €</td></tr>
+        <tr><td>D &mdash; Contenu (brand + IA + UGC)</td><td class="num">12</td><td class="num">96</td><td class="num">7 200 €</td></tr>
+        <tr><td>E &mdash; Gestion réseaux sociaux</td><td class="num">6</td><td class="num">48</td><td class="num">3 600 €</td></tr>
+        <tr><td>F &mdash; Publicité (setup + gestion 3 mois)</td><td class="num">6</td><td class="num">48</td><td class="num">3 600 €</td></tr>
+        <tr><td>Gestion de projet, réunions, reporting</td><td class="num">3</td><td class="num">24</td><td class="num">1 800 €</td></tr>
+        <tr class="subtotal"><td>Sous-total production Phase 1</td><td class="num">59 j</td><td class="num">472 h</td><td class="num">35 400 €</td></tr>
+        <tr class="discount"><td>Optimisation IA (remise productivité)</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">− 14 400 €</td></tr>
+        <tr class="subtotal"><td>Sous-total honoraires</td><td class="num"></td><td class="num"></td><td class="num">21 000 €</td></tr>
+        <tr><td>Frais plateformes (3 × 200 €)</td><td class="num"></td><td class="num"></td><td class="num">600 €</td></tr>
+        <tr class="total"><td>Total Phase 1 HT</td><td class="num"></td><td class="num"></td><td class="num">21 600 €</td></tr>
+      </tbody>
+    </table>
+
+    <div class="price-hero">
+      <div>
+        <div class="label">Forfait mensuel Phase 1</div>
+        <div class="amount">7 200 €<span class="unit">/ mois HT</span></div>
+        <p>3 mensualités fixes &middot; engagement contractuel 3 mois fermes.</p>
+      </div>
+      <div>
+        <div class="label">Mode de facturation</div>
+        <p style="font-size: 9pt;">
+          Facturation en <strong style="color:#fff;">début de mois</strong>.<br>
+          Paiement à <strong style="color:#fff;">30 jours fin de mois</strong>.<br>
+          Acompte de <strong style="color:#fff;">30 %</strong> sur la première mensualité à la signature pour initier les travaux.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ph-footer">
+    <span>Indigo Studio &middot; Offre Pogo Pogo</span>
+    <span>Page 11</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 12 · CHIFFRAGE PHASE 2 + TOTAL ==================== -->
+<section class="page">
+  <div class="ph-header">
+    <div class="mini-logo">INDIGO STUDIO</div>
+    <div class="mini-ref">Offre &middot; Relance Pogo Pogo &middot; 6 mois</div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">08 &middot; Chiffrage &mdash; Phase 2</div>
+    <h2>Mois 4 &agrave; 6 &mdash; L'accélération<span class="dot">.</span></h2>
+
+    <p>
+      À partir du mois 4, le gros de l'infrastructure est en place. On passe en mode
+      <strong>opérationnel + accélération</strong> : entretien, optimisation, activation influence.
+    </p>
+
+    <table class="pricing">
+      <thead>
+        <tr>
+          <th>Pilier</th>
+          <th class="num">Jours</th>
+          <th class="num">Heures</th>
+          <th class="num">Montant HT</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Contenu (production continue, réduite)</td><td class="num">7</td><td class="num">56</td><td class="num">4 200 €</td></tr>
+        <tr><td>Gestion réseaux sociaux</td><td class="num">6</td><td class="num">48</td><td class="num">3 600 €</td></tr>
+        <tr><td>Gestion publicitaire (opti + nouvelles créas)</td><td class="num">5</td><td class="num">40</td><td class="num">3 000 €</td></tr>
+        <tr><td>Optimisation site (CRO, AB tests, ajustements)</td><td class="num">2</td><td class="num">16</td><td class="num">1 200 €</td></tr>
+        <tr><td>G &mdash; Programme influence micro-influenceurs</td><td class="num">8</td><td class="num">64</td><td class="num">4 800 €</td></tr>
+        <tr><td>Gestion de projet, reporting, veille</td><td class="num">2</td><td class="num">16</td><td class="num">1 200 €</td></tr>
+        <tr class="subtotal"><td>Sous-total production Phase 2</td><td class="num">30 j</td><td class="num">240 h</td><td class="num">18 000 €</td></tr>
+        <tr class="discount"><td>Optimisation IA (remise productivité)</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">− 7 200 €</td></tr>
+        <tr class="subtotal"><td>Sous-total honoraires</td><td class="num"></td><td class="num"></td><td class="num">10 800 €</td></tr>
+        <tr><td>Frais plateformes (3 × 200 €)</td><td class="num"></td><td class="num"></td><td class="num">600 €</td></tr>
+        <tr class="total"><td>Total Phase 2 HT</td><td class="num"></td><td class="num"></td><td class="num">11 400 €</td></tr>
+      </tbody>
+    </table>
+
+    <div class="price-hero">
+      <div>
+        <div class="label">Forfait mensuel Phase 2</div>
+        <div class="amount">3 800 €<span class="unit">/ mois HT</span></div>
+        <p>3 mensualités &middot; reconduction tacite par périodes de 3 mois.</p>
+      </div>
+      <div>
+        <div class="label">Dénonciation</div>
+        <p style="font-size: 9pt;">
+          Préavis écrit <strong style="color:#fff;">30 jours</strong> avant la fin de la période de 3 mois en cours. Chaque reconduction = <strong style="color:#fff;">avenant signé</strong> qui précise périmètre et KPI.
+        </p>
+      </div>
+    </div>
+
+    <h3>Total investissement 6 mois</h3>
+
+    <table class="pricing">
+      <tbody>
+        <tr><td>Phase 1 &mdash; 3 mois × 7 200 €</td><td class="num">21 600 €</td></tr>
+        <tr><td>Phase 2 &mdash; 3 mois × 3 800 €</td><td class="num">11 400 €</td></tr>
+        <tr class="subtotal"><td>Total honoraires agence 6 mois</td><td class="num">33 000 €</td></tr>
+        <tr><td>Budget média publicitaire recommandé (6 mois)</td><td class="num">9 000 € &mdash; 12 000 €</td></tr>
+        <tr class="total"><td>Total investissement marque 6 mois HT</td><td class="num">42 000 € &mdash; 45 000 €</td></tr>
+      </tbody>
+    </table>
+
+    <p class="small muted">
+      Les honoraires agence couvrent tout le travail de conception, production et pilotage. Frais plateformes inclus.
+      Le budget média publicitaire est versé <strong>directement aux plateformes</strong> (Meta, TikTok) &mdash; ce n'est pas de l'honoraire.
+    </p>
+  </div>
+
+  <div class="ph-footer">
+    <span>Indigo Studio &middot; Offre Pogo Pogo</span>
+    <span>Page 12</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 13 · AVEC / SANS IA ==================== -->
+<section class="page">
+  <div class="ph-header">
+    <div class="mini-logo">INDIGO STUDIO</div>
+    <div class="mini-ref">Offre &middot; Relance Pogo Pogo &middot; 6 mois</div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">09 &middot; Avec / sans IA</div>
+    <h2>Ce que coûterait la même mission sans IA<span class="dot">.</span></h2>
+
+    <p>
+      L'IA n'est pas un argument marketing ici &mdash; c'est ce qui rend l'offre
+      <strong>soutenable financièrement</strong>. Sans IA générative, la même mission exigerait
+      une équipe plus large, plus de temps, et des prestataires externes (photographes, monteurs,
+      rédacteurs, retoucheurs).
+    </p>
+
+    <table class="pricing">
+      <thead>
+        <tr>
+          <th>Poste</th>
+          <th class="num">Sans IA</th>
+          <th class="num">Avec IA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Moodboards &amp; direction artistique</td><td class="num">10 j</td><td class="num">6 j</td></tr>
+        <tr><td>Production visuels (photo / 3D / retouche)</td><td class="num">20 j (photo + retouche)</td><td class="num">3 j (IA + retouche)</td></tr>
+        <tr><td>Production vidéo (reels, TikTok, pubs)</td><td class="num">15 j (tournage + montage)</td><td class="num">5 j (IA + montage)</td></tr>
+        <tr><td>Copywriting (site, social, pub)</td><td class="num">8 j rédacteur</td><td class="num">3 j rédacteur + IA</td></tr>
+        <tr><td>Déclinaisons visuelles pub A/B</td><td class="num">10 j</td><td class="num">3 j</td></tr>
+        <tr><td>Recherche concurrentielle approfondie</td><td class="num">6 j analyste</td><td class="num">2 j analyste + IA</td></tr>
+        <tr><td>Scouting micro-influenceurs</td><td class="num">4 j</td><td class="num">2 j</td></tr>
+        <tr><td>Maquettes &amp; développement site custom</td><td class="num">30 j</td><td class="num">22 j</td></tr>
+        <tr class="subtotal"><td>Total charge équivalent-jours</td><td class="num">~103 j</td><td class="num">~44 j</td></tr>
+        <tr class="subtotal"><td>Coût équivalent à 600 €/jour</td><td class="num">~61 800 €</td><td class="num">~26 400 €</td></tr>
+        <tr class="total"><td>Refactorisé en offre client</td><td class="num">~100 000 € HT</td><td class="num">~33 000 € HT</td></tr>
+      </tbody>
+    </table>
+
+    <div class="compare-block">
+      <div class="compare-col without">
+        <span class="tag">Sans IA</span>
+        <div class="price">~100 000 €</div>
+        <div class="price-sub">HT, 6 mois, même périmètre</div>
+        <p class="small" style="margin-top: 8pt; color: var(--ink);">
+          Équipe élargie (photographe, vidéaste, rédacteur, retoucheur, analyste), frais de production physiques, délais allongés.
+        </p>
+      </div>
+      <div class="compare-col with">
+        <span class="tag">Avec IA</span>
+        <div class="price">~33 000 €</div>
+        <div class="price-sub">HT, 6 mois, périmètre identique</div>
+        <p class="small" style="margin-top: 8pt; color: var(--ink);">
+          Production IA massive encadrée par pilotage humain. Le différentiel est <strong>répercuté au client</strong>, pas gardé en marge.
+        </p>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <h4>Ce que l'IA ne remplace pas</h4>
+      <p>
+        La stratégie, le ton, le jugement créatif, la décision éditoriale, la relation client, la gestion
+        de projet, l'écriture finale des pages-clés, la recette qualité. <strong>L'IA produit la matière ;
+        l'humain pilote et tranche.</strong> C'est cette articulation qui tient la qualité au niveau
+        attendu d'une marque premium.
+      </p>
+    </div>
+
+    <p class="right" style="margin-top: 10pt; font-size: 10pt;">
+      <strong>Différentiel répercuté au client : ~67 000 € HT d'économie sur 6 mois.</strong>
+    </p>
+  </div>
+
+  <div class="ph-footer">
+    <span>Indigo Studio &middot; Offre Pogo Pogo</span>
+    <span>Page 13</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 14 · BUDGET PUB ==================== -->
+<section class="page">
+  <div class="ph-header">
+    <div class="mini-logo">INDIGO STUDIO</div>
+    <div class="mini-ref">Offre &middot; Relance Pogo Pogo &middot; 6 mois</div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">10 &middot; Budget média</div>
+    <h2>Le budget publicitaire<span class="dot">.</span></h2>
+
+    <p>
+      La règle est simple : <strong>un budget publicitaire insuffisant annule la valeur de tout le reste</strong>.
+      Si on produit un site magnifique, un contenu cohérent, et qu'on met 300 €/mois de pub, on diffuse
+      à trop peu de monde pour sortir du bruit &mdash; et on ne génère pas les données nécessaires pour optimiser.
+    </p>
+
+    <div class="highlight-box">
+      <h4>Plancher / seuil / accélération</h4>
+      <p>
+        <strong>Plancher opérationnel&nbsp;:</strong> 1 000 €/mois de budget média.<br>
+        <strong>Seuil efficient&nbsp;:</strong> 1 500 &mdash; 2 000 €/mois <em>(recommandation Indigo Studio)</em>.<br>
+        <strong>Accélération&nbsp;:</strong> 3 000 €/mois+, dès que le ROAS est stabilisé.
+      </p>
+    </div>
+
+    <table class="pricing">
+      <thead>
+        <tr>
+          <th>Scénario</th>
+          <th class="num">Budget média / mois</th>
+          <th>Résultat attendu</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Minimum viable</td><td class="num">1 000 €</td><td>Premier signal, apprentissage lent, ventes marginales.</td></tr>
+        <tr style="background: var(--soft);"><td><strong>Recommandé</strong></td><td class="num"><strong>1 500 &mdash; 2 000 €</strong></td><td><strong>Volume de données suffisant pour optimiser, premières ventes significatives.</strong></td></tr>
+        <tr><td>Accélération</td><td class="num">3 000 €+</td><td>Passage à l'échelle dès que le ROAS est stabilisé.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Répartition des plateformes</h3>
+
+    <div class="grid-2" style="margin-top: 6pt;">
+      <div class="card">
+        <h4>70 % Meta Ads (IG + Facebook)</h4>
+        <p>Audience la plus large, tunnel de conversion éprouvé pour le e-commerce parfum. C'est le socle.</p>
+      </div>
+      <div class="card">
+        <h4>30 % TikTok Ads</h4>
+        <p>Audience plus jeune, formats natifs qui percent en découverte. Réajusté mensuellement selon les performances.</p>
+      </div>
+    </div>
+
+    <div class="note-bar">
+      <strong>Décision attendue du client avant fin M2</strong>
+      Fixer le budget média mensuel pour la période M3 &rarr; M6. Plus tôt cette décision est prise,
+      plus tôt on peut pré-produire les créas publicitaires adaptées au volume.
+    </div>
+
+    <h3>Pourquoi on ne garde pas le budget média en honoraires</h3>
+
+    <p>
+      Le budget média est versé <strong>directement aux plateformes publicitaires</strong>
+      (Meta, TikTok). Indigo Studio n'encaisse pas de marge dessus &mdash; ni commission, ni mark-up.
+      Cette transparence est un principe de fonctionnement : le client sait où va chaque euro.
+    </p>
+  </div>
+
+  <div class="ph-footer">
+    <span>Indigo Studio &middot; Offre Pogo Pogo</span>
+    <span>Page 14</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 15 · MODALITÉS CONTRACTUELLES ==================== -->
+<section class="page">
+  <div class="ph-header">
+    <div class="mini-logo">INDIGO STUDIO</div>
+    <div class="mini-ref">Offre &middot; Relance Pogo Pogo &middot; 6 mois</div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">11 &middot; Modalités contractuelles</div>
+    <h2>Les règles du jeu<span class="dot">.</span></h2>
+
+    <h3>Engagement minimum</h3>
+
+    <div class="highlight-box">
+      <h4>3 mois fermes à la signature</h4>
+      <p>
+        Cet engagement n'est pas négociable. Ce n'est pas une contrainte commerciale &mdash;
+        c'est une condition de <strong>qualité</strong>.
+      </p>
+      <p>
+        Une marque ne se reconstruit pas en un mois. Les 6 premières semaines servent à poser les
+        fondations (stratégie, identité, site, premiers contenus). C'est à partir du mois 3 que la
+        machine commence à tourner et que les premières données exploitables apparaissent.
+      </p>
+      <p>
+        Quand Indigo Studio s'engage sur un projet, c'est <strong>avec les tripes &mdash; pas à moitié</strong>.
+        On ne signe pas pour "tester un mois". On signe pour construire quelque chose.
+      </p>
+    </div>
+
+    <h3>Reconduction tacite</h3>
+
+    <p>
+      À partir du mois 4, le contrat se <strong>reconduit tacitement par périodes de 3 mois</strong>
+      au tarif Phase 2 (3 800 € HT / mois), sauf dénonciation <strong>écrite 30 jours avant</strong>
+      la fin de la période en cours.
+    </p>
+
+    <p>
+      Chaque reconduction donne lieu à la <strong>signature d'un avenant</strong> qui formalise&nbsp;:
+    </p>
+    <ul class="clean">
+      <li>La période couverte</li>
+      <li>Les éventuels ajustements de périmètre (influence qui monte en charge, ajout d'un canal, arbitrage budget pub)</li>
+      <li>Les KPI de la période</li>
+    </ul>
+
+    <h3>Conditions générales de vente</h3>
+
+    <p>
+      Les présentes conditions particulières sont complétées par les
+      <strong>Conditions Générales de Vente d'Indigo Studio</strong>, disponibles sur&nbsp;:
+      <a href="https://indigostudio.be">indigostudio.be</a> (rubrique CGV).
+    </p>
+
+    <p class="small muted">
+      Les CGV encadrent notamment : propriété intellectuelle, confidentialité, modalités de paiement,
+      responsabilité, litiges. En cas de contradiction, les conditions particulières de la présente
+      offre priment sur les CGV.
+    </p>
+
+    <h3>Modalités de paiement</h3>
+
+    <div class="grid-4" style="margin-top: 6pt;">
+      <div class="card"><h4>Facturation</h4><p>Début de mois</p></div>
+      <div class="card"><h4>Paiement</h4><p>30 jours fin de mois</p></div>
+      <div class="card"><h4>Acompte</h4><p>30 % de la première mensualité à la signature</p></div>
+      <div class="card"><h4>Monnaie</h4><p>EUR HT &middot; TVA belge applicable</p></div>
+    </div>
+
+    <h3>Propriété des livrables</h3>
+
+    <p class="small">
+      Tous les livrables produits (identité graphique, site, contenus, comptes sociaux, comptes publicitaires)
+      sont <strong>la propriété du client</strong> à l'issue de la mission et du paiement complet.
+      Indigo Studio conserve le droit de présenter le projet dans son portfolio, sauf demande contraire écrite.
+    </p>
+  </div>
+
+  <div class="ph-footer">
+    <span>Indigo Studio &middot; Offre Pogo Pogo</span>
+    <span>Page 15</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 16 · CONDITIONS CLIENT + CLOSING ==================== -->
+<section class="page">
+  <div class="ph-header">
+    <div class="mini-logo">INDIGO STUDIO</div>
+    <div class="mini-ref">Offre &middot; Relance Pogo Pogo &middot; 6 mois</div>
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">12 &middot; Conditions &amp; prochaines étapes</div>
+    <h2>Ce qu'on attend du client<span class="dot">.</span></h2>
+
+    <p>
+      Conditions non négociables de bon déroulement &mdash; déjà évoquées lors des échanges, formalisées ici.
+    </p>
+
+    <div class="cond-grid">
+      <div class="cond-num">1</div>
+      <div class="cond-text">
+        <h4>Un interlocuteur unique décisionnaire</h4>
+        <p>Pas de comité, pas de validation tournante, pas d'avis extérieur qui vient contredire à posteriori une direction déjà validée. Une tentative de relance a déjà été bloquée pour cette raison &mdash; on ne recommence pas.</p>
+      </div>
+
+      <div class="cond-num">2</div>
+      <div class="cond-text">
+        <h4>Respect du processus de validation</h4>
+        <p>Maximum <strong>2 tours de retour</strong> par livrable. Au 3ᵉ tour, on fige et on avance.</p>
+      </div>
+
+      <div class="cond-num">3</div>
+      <div class="cond-text">
+        <h4>Réactivité client</h4>
+        <p>Retours sous <strong>5 jours ouvrés</strong> maximum. Chaque semaine de retard côté client décale d'autant le planning.</p>
+      </div>
+
+      <div class="cond-num">4</div>
+      <div class="cond-text">
+        <h4>Matière première</h4>
+        <p>Photos produits (ou accord pour en produire), histoire de marque, éléments historiques, accès aux comptes existants.</p>
+      </div>
+
+      <div class="cond-num">5</div>
+      <div class="cond-text">
+        <h4>Décision budget média avant fin M2</h4>
+        <p>Fixer le budget publicitaire mensuel pour M3 &rarr; M6.</p>
+      </div>
+    </div>
+
+    <h3>Ce qui n'est pas inclus</h3>
+
+    <ul class="excl-list">
+      <li>Distribution physique (retail, coiffeurs, barbershops)</li>
+      <li>Création de nouveaux produits</li>
+      <li>Logistique et expédition (à organiser côté client)</li>
+      <li>Service client / SAV</li>
+      <li>Relations presse traditionnelles</li>
+      <li>Garantie de résultats chiffrés (volume de ventes, ROAS, délai d'écoulement du stock)</li>
+    </ul>
+
+    <hr>
+
+    <h3>Prochaines étapes</h3>
+
+    <div class="phase">
+      <div class="num">1</div>
+      <div class="body">
+        <h4>Validation de l'offre</h4>
+        <p>Par Jo Kemby &mdash; éventuellement après un échange ciblé sur les points d'arbitrage (budget média, périmètre influence, rythme de publication).</p>
+      </div>
+      <div class="when">Semaine 0</div>
+    </div>
+
+    <div class="phase">
+      <div class="num">2</div>
+      <div class="body">
+        <h4>Signature du contrat</h4>
+        <p>Phase 1 (3 mois fermes) + clause de reconduction tacite 3 mois. Versement de l'acompte 30 %.</p>
+      </div>
+      <div class="when">Semaine 0-1</div>
+    </div>
+
+    <div class="phase">
+      <div class="num">3</div>
+      <div class="body">
+        <h4>Kick-off</h4>
+        <p>90 min, présentiel ou visio. Briefing complet, récupération des assets existants, calendrier fixé.</p>
+      </div>
+      <div class="when">Semaine 1</div>
+    </div>
+
+    <div class="phase">
+      <div class="num">4</div>
+      <div class="body">
+        <h4>Démarrage opérationnel</h4>
+        <p>Sous <strong>5 jours ouvrés</strong> après kick-off. La machine se met en route.</p>
+      </div>
+      <div class="when">Semaine 1-2</div>
+    </div>
+
+    <div style="margin-top: 22pt; text-align: center; padding: 16pt 0;">
+      <div class="rule-accent" style="margin: 0 auto 14pt auto;"></div>
+      <p style="font-size: 14pt; font-weight: 400; color: var(--ink);">
+        Prêt à construire la marque Pogo Pogo ?
+      </p>
+      <p class="small muted" style="margin-top: 6pt;">
+        Indigo Studio &middot; Avril 2026 &middot; Offre valable 30 jours
+      </p>
+      <p class="small muted" style="margin-top: 8pt;">
+        Ébauche stratégique de référence &middot;
+        <a href="https://indigostudio03.github.io/pogopogo-assets/">indigostudio03.github.io/pogopogo-assets</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="ph-footer">
+    <span>Indigo Studio &middot; Offre Pogo Pogo</span>
+    <span>Page 16</span>
+  </div>
+</section>
+
+</body>
+</html>
